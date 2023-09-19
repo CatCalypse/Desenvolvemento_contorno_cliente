@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let capital = 0
+        let tempo = 3
+        let interes = 1.02
+        
+
+        do{
+            capital = parseInt(prompt("Introduce o teu capital"))
+        }while(capital <= 0)
+
+        let total = capital
+
+        for(i = 0; i < tempo -1; i++){
+            total = total * interes
+        }
+          
+        document.write(`O capital final é ${total}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let numero = 0
+        do{
+            numero = prompt("Introduce un número de catro díxitos")
+        }while(numero.length != 4 )
+        
+        let millares = numero.charAt(0)
+        let centenas = numero.charAt(1)
+        let decenas = numero.charAt(2)
+        let unidades = numero.charAt(3)
+
+        document.write(`O número introducido ten ${millares} millares, ${centenas} centenas, ${decenas} decenas,${unidades} unidades`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let peso = parseInt(prompt("Introduce o teu peso en kilos"))
+        let altura = parseInt(prompt("Introduce a tua altura en cm"))
+        let idade = parseInt(prompt("Introduce a tua idade"))
+        let cintura = parseInt(prompt("Introduce a medida de tua cintura en cm"))
+        let imc = peso /((altura/100)*(altura/100))
+        imc = parseFloat(imc).toFixed(2)
+        let calorias = 10*peso + 6.25*altura - 5*idade  
+        let ict = cintura/altura
+        ict = parseFloat(ict).toFixed(2)
+
+        document.write(`O teu imc é ${imc}<br>`)
+        document.write(`O teu cit é ${ict}<br>`)
+        document.write(`O número de calorías diarías é ${calorias}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
