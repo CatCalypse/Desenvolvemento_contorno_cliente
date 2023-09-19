@@ -17,9 +17,20 @@
         let ict = cintura/altura
         ict = parseFloat(ict).toFixed(2)
 
-        document.write(`O teu imc é ${imc}<br>`)
-        document.write(`O teu cit é ${ict}<br>`)
-        document.write(`O número de calorías diarías é ${calorias}`)
+        document.write(`<table border="1">
+            <tr>
+                <td>IMC</td>
+                <td>${imc}</td>
+            </tr>
+            <tr>
+                <td>ICT</td>
+                <td>${ict}</td>
+            </tr>
+            <tr>
+                <td>Calorías</td>
+                <td>${calorias}</td>
+            </tr>
+            </table>`)
     </script>
 </head>
 <body>
