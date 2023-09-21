@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        
+        function comprobar(){
+            let nombre = document.forms["Formulario"]["nombre"].value  
+            let apellido1 = document.forms["Formulario"]["apel1"].value 
+            let apellido2 = document.forms["Formulario"]["apel2"].value 
+            let password = toString(document.forms["Formulario"]["password"].value)
+            let password_verify = toString(document.forms["Formulario"]["password_verify"].value)
+            let correo = document.forms["Formulario"]["mail"].value 
+
+            if(nombre == "" || nombre == null){
+                alert("O nome está vacio")
+                document.getElementById("nombre").className="erro"
+            }else{
+                document.getElementById("nombre").className="correcto"
+            }
+
+            if(apellido1 == "" || apellido1 == null){
+                alert("O primeiro apelido está vacio")
+                document.getElementById("apel1").className="erro"
+            }else{
+                document.getElementById("apel1").className="correcto"
+            }
+
+            if(apellido2 == "" || apellido2 == null){
+                alert("O segundo apelido está vacio")
+                document.getElementById("apel2").className="erro"
+            }else{
+                document.getElementById("apel2").className="correcto"
+            }
+
+
+            if(correo == "" || correo == null){
+                alert("O correo está vacio")
+                document.getElementById("mail").className="erro"
+            }else if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo)){
+                document.getElementById("mail").className="correcto"
+            }else{
+                alert("O correo non cumple o formato")
+                document.getElementById("mail").className="erro"
+            }
+
+            if(password == "" || password == null || password_verify == "" || password_verify == null){
+                alert("Algunha das contraseñas está vacioa")
+            }else{
+                if(password.localeCompare(password_verify) == 0){
+                    alert("As contraseñas non son iguais")
+                    document.getElementById("password").className="correcto"
+                    document.getElementById("password_verify").className="correcto"
+                }else{
+                    document.getElementById("password").className="erro"
+                    document.getElementById("password_verify").className="erro"
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <form method="post" name="Formulario" onsubmit="comprobar()">
+        <label for="nombre">Nombre:<br></label>
+        <input type="text" id="nombre" name="nombre" value=""><br>
+        <label for="apel1">Primeiro apelido:<br></label>
+        <input type="text" id="apel1" name="apel1" value=""><br>
+        <label for="apel2">Segundo apelido:<br></label>
+        <input type="text" id="apel2" name="apel2" value=""><br>
+        <label for="mail">Correo Elctrónico:<br></label>
+        <input type="text" id="mail" name="mail" value=""><br>
+        <label for="password">Contraseña:<br></label>
+        <input type="password" id="password" name="password" value=""><br>
+        <label for="password_verify">Verificación de contraseña:<br></label>
+        <input type="password" id="password_verify" name="password_verify" value=""><br>
+        <input type="submit" value="gardar">
+    </form>
+</body>
+</html>
