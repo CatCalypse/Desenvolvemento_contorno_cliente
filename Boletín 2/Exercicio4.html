@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let figura = 0
+        let perimetro = 0
+
+        let lado1 = 0
+        let lado2 = 0
+        let lado3 = 0
+
+        do{
+            figura = parseInt(prompt("1- Triángulo  2- Cadrado  3-Rectángulo  4-Círculo"))
+        }while(figura < 1 || figura > 4 )
+
+        if(figura == 1){
+            lado1 = parseInt(prompt("Introduce o primerio lado do triángulo"))
+            lado2 = parseInt(prompt("Introduce o segundo lado do triángulo"))
+            lado3 = parseInt(prompt("Introduce o terceiro lado do triángulo"))
+        }else if(figura == 2){
+            lado1 = parseInt(prompt("Introduce o lado do cadrado"))
+        }else if(figura == 3){
+            lado1 = parseInt(prompt("Introduce o largo do rectángulo"))
+            lado2 = parseInt(prompt("Introduce a altura do rectángulo"))
+        }else {
+            lado1 = parseInt(prompt("Introduce o radio do círculo"))
+        }
+
+
+        
+        function perim(figura, perimetro, lado1, lado2, lado3){
+            if (figura == 1){
+                perimetro = lado1 + lado2 + lado3
+            }else if (figura == 2){
+                perimetro = lado1*4
+            }else if (figura == 3){
+                perimetro = (lado1+lado2)*2
+            }else{
+                perimetro = parseFloat((lado1*3.14)*2).toFixed(2)
+            }
+            return perimetro
+        }
+        
+        document.write(`O perímetro da figura é ${perim(figura, perimetro, lado1, lado2, lado3)}cm`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
