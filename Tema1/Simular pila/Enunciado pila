@@ -1,0 +1,12 @@
+SIMULAR UNHA PILA CON UN ARRAY
+Debe lanzarse o seguinte menú, do que só se sairá
+se se pulsa a opción salir.
+1. Insertar ao inicio un elemento na pila.
+2. Insertar ao funal un elemento na pila.
+3. Eliminar elemento da pila ao inicio.
+4. Eliminar elemento da pila ao final.
+5. Ver os elementos da pila en forma de pila.
+6. Saír.
+Cousas a ter en conta:
+Non se pode eliminar se non hai elementos.
+Debe imprimirse o array en forma de pila (do finalñ ao inicio).

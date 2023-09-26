@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>console</title>
+
+    
+
+    <script defer>
+        let elemento = ""
+        let opcion = 0
+        let pila = []
+
+        console.log("1. Insertar ao inicio un elemento na pila.")
+        console.log("2. Insertar ao funal un elemento na pila.")
+        console.log("3. Eliminar elemento da pila ao inicio.")
+        console.log("4. Eliminar elemento da pila ao final.")
+        console.log("5. Ver os elementos da pila en forma de pila.")
+        console.log("6. Saír.")
+        do{
+        opcion = parseInt(prompt(`Introduce a opción (1-6)`))
+        switch (opcion) {
+            case 1:
+                elemento = prompt("Introduce un elemento")
+                pila.unshift(elemento)
+                break;
+                
+            case 2:
+                elemento = prompt("Introduce un elemento")
+                    pila.push(elemento)
+                break;
+
+            case 3:
+                if(pila.length == 0){
+                    console.log("A pila está vacía")
+                }else{
+                    pila.shift()   
+                }
+                break;
+
+            case 4:
+                if(pila.length == 0){
+                    console.log("A pila está vacía")
+                }else{
+                    pila.pop()   
+                }
+                break;
+
+            case 5:
+                console.log(`${pila.reverse()}`)
+                break;
+
+            case 6:
+                break;
+            }
+        }while(opcion != 6)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
