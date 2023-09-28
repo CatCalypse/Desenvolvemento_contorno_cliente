@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let frase = prompt("Introduce unha frase:")
+
+        let vocales= 0
+        let consonantes = 0
+        
+        if(frase.match(/[AEIOUaeiou]/g) == null){
+        }else{
+            vocales = frase.match(/[AEIOUaeiou]/g).length
+        }
+
+        if(frase.match(/[^AEIOUaeiou]/g) == null){
+        }else{
+            consonantes = frase.match(/[^AEIOUaeiou]/g).length
+        }
+
+
+        document.write(`A frase conten ${vocales} vocales e ${consonantes} consonantes`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

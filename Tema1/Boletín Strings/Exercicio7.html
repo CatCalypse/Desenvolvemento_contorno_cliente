@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let frase = prompt("Introduce unha frase:")
+        let frase_auxiliar = new String('')
+
+        for(let i = frase.length -1; i >= 0; i--){
+            frase_auxiliar = frase_auxiliar.concat(frase.charAt(i))
+        }
+        
+
+        document.write(`A frase ${frase} invertida é ${frase_auxiliar}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
