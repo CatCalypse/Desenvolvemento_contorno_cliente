@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let numeros = []
+        let signo = 0
+        let ceros = 0
+        let positivos = 0
+        let negativos = 0
+
+        for (let i = 0; i < 10; i++){
+            signo = Math.floor(Math.random()*2)
+
+            if(signo == 0){
+                signo = 1
+            }else{
+                signo = -1
+            }
+
+            numeros[i] = Math.floor(Math.random()*10) * signo
+        }
+
+        for(let i = 0; i < numeros.length; i++){
+            if(numeros[i] > 0){
+                positivos++
+            }else if(numeros[i] < 0){
+                negativos ++
+            }else{
+                ceros++
+            }
+
+            document.write(`${numeros[i]} `)
+        }
+        document.write(`<br>Positivos: ${positivos}<br>Negativos: ${negativos}<br>Ceros: ${ceros}`)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
