@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>console</title>
+
+    
+
+    <script defer>
+        let counter = 0
+        let array = []
+        array[0] = parseInt(prompt("Introduce o primeiro elemento"))
+        array[1] = parseInt(prompt("Introduce o segundo elemento"))
+        array[2] = parseInt(prompt("Introduce o terceiro elemento"))
+        array[3] = parseInt(prompt("Introduce o cuarto elemento"))
+        array[4] = parseInt(prompt("Introduce o quinto elemento"))
+
+        let busqueda = parseInt(prompt("Introduce o número a buscar"))
+
+        for (let i = 0; i <= 4; i++){
+            if(array[i] == busqueda){
+                counter++
+            }
+        }
+        document.write(`Aparece o elemento ${busqueda} ${counter} veces`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
