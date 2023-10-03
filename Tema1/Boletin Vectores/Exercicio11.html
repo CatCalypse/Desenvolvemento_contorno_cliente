@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let numeros = []
+        let is_prime = false
+        let numero = 0
+        let count = 0
+        let maior = 0
+        let tamaño = parseInt(prompt("Introduce o tamaño do array"))
+
+        for(let i = 0; i < tamaño; i++){
+            do{
+                numero = Math.floor(Math.random()*101)
+                for(let j = 1; j <= numero; j++){
+                    if (numero % j == 0){
+                        count ++
+                    }
+                }
+                if(count == 2){
+                    is_prime = true
+                }else{
+                    count = 0
+                }
+            }while(!is_prime)
+            is_prime = false
+            numeros[i] = numero
+        }
+
+        for(let i = 0; i < numeros.length; i++){
+            document.write(`${numeros[i]} `)
+            if(numeros[i] > maior){
+                maior = numeros[i]
+            }
+        }
+        
+        document.write(`<br>O núemro primo maior é ${maior}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

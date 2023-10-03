@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let numeros = []
+        let superior_media = []
+        let suma = 0
+        let media = 0
+        
+
+        for(let i = 0; i < 10; i++){
+            numeros[i] = parseInt(prompt("Introduce un número:"))
+            suma += numeros[i]
+        }
+
+        media = suma / 10
+
+        for(let i = 0; i < numeros.length; i++){
+            if(numeros[i] > media ){
+                superior_media.push(numeros[i])  
+            }
+        }
+
+        document.write(`A media é ${media}.<br>Os números superiores a media son: `)
+
+        for(let i = 0; i < superior_media.length; i++){
+            document.write(`${superior_media[i]} `)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

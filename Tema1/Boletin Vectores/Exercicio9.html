@@ -8,17 +8,22 @@
 
     <script defer>
         let numeros = []
+        
 
-        numeros[0] = Math.floor(Math.random()*11)
-        numeros[1] = Math.floor(Math.random()*11)
-
-        for (let i = 2; i < 10; i++){
-            numeros.splice(i, 1)
-            numeros[i] = numeros[i-1] + numeros[i-2]
+        for(let i = 0; i < 15; i++){
+            numeros[i] = Math.floor(Math.random()*101)
         }
 
         for(let i = 0; i < numeros.length; i++){
             document.write(`${numeros[i]} `)
+        }
+
+        document.write(`<br>`)
+
+        let numeros_reverso = numeros.reverse()
+        
+        for(let i = 0; i < numeros_reverso.length; i++){
+            document.write(`${numeros_reverso[i]} `)
         }
     </script>
 </head>
