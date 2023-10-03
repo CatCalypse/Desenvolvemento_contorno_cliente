@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let xogadores = parseInt(prompt("Introduce o número de xogadores (2-4)"))
+        let baraxa = []
+        let pao
+        let numero_carta
+        let carta_repartida = false
+        let cartas_a_repartir = 0
+        let cartas_xogadores = []
+
+        function get_pao(pao){
+            let pao_escrito = ""
+            if(pao == 1){
+                pao_escrito = "copas"
+            }else if(pao == 2){
+                pao_escrito = "espadas"
+            }else if(pao == 3){
+                pao_escrito = "bastos"
+            }else{
+                pao_escrito = "ouros"
+            }
+
+            return pao_escrito
+        }
+
+        function nombre_carta(numero_carta){
+            let carta_escrita = ""
+            if(numero_carta == 1){
+                carta_escrita = "As"
+            }else if(numero_carta == 8){
+                carta_escrita = "Sota"
+            }else if(numero_carta == 9){
+                carta_escrita = "Cabalo"
+            }else if(numero_carta == 10){
+                carta_escrita = "Rei"
+            }else{
+                carta_escrita = `${numero_carta}`
+            }
+
+            return carta_escrita
+        }
+
+        for(let i = 0; i < 4; i++){
+            baraxa+=[]
+            for(let j = 0; j < 10; j++){
+                baraxa[i] += j
+            }
+        }
+
+        if(xogadores == 2){
+            cartas_a_repartir = 8
+        }else if(xogadores == 3){
+            cartas_a_repartir = 13
+        }else{
+            cartas_a_repartir = 10
+        }
+
+        for(let i = 0; i < xogadores; i++){
+            document.write(`Xogador ${i+1}:<br>`)
+            cartas_xogadores += []
+            for(let j = 0; j < cartas_a_repartir; j++){
+                do{
+                    numero_carta = Math.floor(Math.random()*10)+1
+                    pao = Math.floor(Math.random()*5)
+                    if(!cartas_xogadores.includes(`${numero_carta}_${pao}`)){
+                        carta_repartida = true
+                        cartas_xogadores[i]=`${numero_carta}_${pao}`
+                    }
+                }while(!carta_repartida)
+                carta_repartida = false
+                document.write(`${nombre_carta(numero_carta)} de ${get_pao(pao)}<br>`)
+            }
+            document.write("<br>")
+        }
+
+        for(let i = 0; i < xogadores; i++){
+            for(let j = 0; j < cartas_a_repartir; j++){
+                pao = 1
+                do{
+                if(cartas_xogadores[i].includes(`9_${pao}`)){
+                    if(cartas_xogadores[i].includes(`10_${pao}`)){
+                        count ++
+                    }
+                }
+                pao ++
+                }while(pao < 5)
+
+                if(count > 0){
+                    document.write(`<br>O xogador ${i} pode cantar`)
+                }
+                count = 0
+            }
+            
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
