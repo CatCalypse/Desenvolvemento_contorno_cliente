@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let opcion = 0
+        let conxunto = new Set()
+        do{
+            console.log("1. Introducir unha nova cidade.")
+            console.log("2. Ver cidades cargadas no conxunto.")
+            console.log("3. Comprobar si unha cidade está cargada no conxunto.")
+            console.log("4. Eliminar unha cidade do conxunto.")
+            console.log("5. Saír.")
+            opcion = parseInt(prompt("Introduce unha opcion"))
+            console.log("\n")
+
+            switch(opcion){
+                case 1:
+                    conxunto.add(prompt("Introduce unha cidade"))
+                    
+                    break;
+
+                case 2:
+                    for(let ciudad of conxunto){
+                        console.log(ciudad)
+                    }
+                    
+                    break;
+                
+                case 3:
+                    if(conxunto.has(prompt("Introduce unha cidade a comprobar"))){
+                        console.log("A cidade existe no conxunto")
+                    }else{
+                        console.log("A cidade non se atopa no conxunto")
+                    }
+                    
+                    break;
+
+                case 4:
+
+                    if(conxunto.delete(prompt("Introduce a cidade a eliminar"))){
+                        console.log("A cidade foi eliminada correctamente")
+                    }else{
+                        console.log("A cidade non existe no conxunto")
+                    }
+                    
+                    break;
+                
+                case 5:
+                    break;
+
+                default:
+                    console.log("Instrucción non definida")
+                    
+                    break;
+            }
+            console.log("\n")
+        }while(opcion != 5)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

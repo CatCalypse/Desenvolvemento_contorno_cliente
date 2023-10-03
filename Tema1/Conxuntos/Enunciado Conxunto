@@ -1,0 +1,7 @@
+Crear un programa co seguinte menú.
+---------Cidades de España---------
+1. Introducir unha nova cidade
+2. Ver cidades cargadas no conxunto
+3. Comprobar se unha cidade está cargada no conxunto
+4. Eliminar unha cidade do conxunto
+5. Saír do programa
