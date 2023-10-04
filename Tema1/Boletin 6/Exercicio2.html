@@ -9,11 +9,55 @@
     <script defer>
         let xogadores = parseInt(prompt("Introduce o número de xogadores (2-4)"))
         let baraxa = []
-        let pao
-        let numero_carta
+        let pao = 0
+        let numero_carta = 0
+        let carta = 0
         let carta_repartida = false
         let cartas_a_repartir = 0
         let cartas_xogadores = []
+
+        for(let i = 0; i < 4; i++){
+            for(let j = 0; j < 10; j++){
+                baraxa.push(`${i+1}-${j+1}`)
+            }
+        }
+
+        if(xogadores == 2){
+            cartas_a_repartir = 8
+        }else if(xogadores == 3){
+            cartas_a_repartir = 13
+        }else{
+            cartas_a_repartir = 10
+        }
+        
+        for(let i = 0; i < xogadores; i++){
+            document.write(`Xogador ${i+1}:<br>`)
+            cartas_xogadores[i] = []
+            for(let j = 0; j < cartas_a_repartir; j++){
+            cartas_xogadores[i][j] = colocar_carta()
+
+                document.write(`${cartas_xogadores[i][j]}<br>`)
+                //document.write(`${nombre_carta(numero_carta)} de ${get_pao(pao)}<br>`)
+            }
+            document.write("<br>")
+        }
+
+        for(let i = 0; i < xogadores; i++){
+            pao = 1
+            do{
+            if(comprobar_cante(i, 9, pao)){
+                count++
+            }                    
+            if(comprobar_cante(i, 10, pao)){
+                count ++
+            }
+            if(count == 2){
+                document.write(`<br>O xogador ${i} pode cantar`)
+            }
+            count = 0
+            pao ++
+            }while(pao < 5)
+        }
 
         function get_pao(pao){
             let pao_escrito = ""
@@ -23,7 +67,7 @@
                 pao_escrito = "espadas"
             }else if(pao == 3){
                 pao_escrito = "bastos"
-            }else{
+            }else if(pao == 4){
                 pao_escrito = "ouros"
             }
 
@@ -43,64 +87,24 @@
             }else{
                 carta_escrita = `${numero_carta}`
             }
-
             return carta_escrita
         }
 
-        for(let i = 0; i < 4; i++){
-            baraxa+=[]
-            for(let j = 0; j < 10; j++){
-                baraxa[i] += j
-            }
-        }
-
-        if(xogadores == 2){
-            cartas_a_repartir = 8
-        }else if(xogadores == 3){
-            cartas_a_repartir = 13
-        }else{
-            cartas_a_repartir = 10
-        }
-
-        for(let i = 0; i < xogadores; i++){
-            document.write(`Xogador ${i+1}:<br>`)
-            cartas_xogadores += []
-            for(let j = 0; j < cartas_a_repartir; j++){
-                do{
-                    numero_carta = Math.floor(Math.random()*10)+1
-                    pao = Math.floor(Math.random()*5)
-                    if(!cartas_xogadores.includes(`${numero_carta}_${pao}`)){
-                        carta_repartida = true
-                        cartas_xogadores[i]=`${numero_carta}_${pao}`
-                    }
-                }while(!carta_repartida)
-                carta_repartida = false
-                document.write(`${nombre_carta(numero_carta)} de ${get_pao(pao)}<br>`)
-            }
-            document.write("<br>")
-        }
-
-        for(let i = 0; i < xogadores; i++){
-            for(let j = 0; j < cartas_a_repartir; j++){
-                pao = 1
-                do{
-                if(cartas_xogadores[i].includes(`9_${pao}`)){
-                    if(cartas_xogadores[i].includes(`10_${pao}`)){
-                        count ++
-                    }
+        function comprobar_cante(xogador, numero_carta, pao){
+            for(let j = 0; j < cartas_xogadores[xogador].length; j++){
+                if(cartas_xogadores[xogador][j] == (`${numero_carta}_${pao}`)){
+                    return true;
                 }
-                pao ++
-                }while(pao < 5)
-
-                if(count > 0){
-                    document.write(`<br>O xogador ${i} pode cantar`)
-                }
-                count = 0
             }
-            
         }
 
-
+        function colocar_carta(){
+            let numero = 0
+            numero = Math.floor(Math.random()*baraxa.length)
+            carta = baraxa[numero]
+            baraxa.splice(numero, 1)
+            return carta
+        }
     </script>
 </head>
 <body>
