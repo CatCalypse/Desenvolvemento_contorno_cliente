@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let clave = 0;
+
+        do{
+        clave = parseInt(prompt("Introduce a clave para o cifrado"))
+        }while(clave < 0 || clave > 27);
+
+        let frase = prompt("Introduce la frase a codificar");
+
+        let frase_auxiliar = "";
+        let letra = "";
+
+        for(let i = 0; i < frase.length; i++){
+            letra = frase.charCodeAt(i);
+            letra += clave
+
+            if(letra == 111){
+                letra = 241
+            }else if(letra == (241 + clave)){
+                letra = 111
+            }else if(letra >= 123){
+                letra = (96 + (letra -122))
+            }
+
+            if(letra == 79){
+                letra = 209
+            }else if (letra == (209 + clave)){
+                letra = 79
+            }if(letra >= 91){
+                letra = (64 + (letra -90))
+            }
+            
+            letra = String.fromCharCode(letra)
+            frase_auxiliar +=letra;
+        } 
+        document.write(`${frase_auxiliar} `);
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>
