@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let cadena = prompt("Introduce unha cadena:")
+        let cadena_resultante = ""
+
+        const regex = /[aeiou]/g
+        const regex_maiusculas = /[AEIOU]/g
+
+        cadena_resultante = cadena.replace(regex, "x")
+        cadena_resultante = cadena_resultante.replace(regex_maiusculas, "X")
+
+        document.write(`Cadena tras realizar a transformación:<br>${cadena_resultante}`)
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>

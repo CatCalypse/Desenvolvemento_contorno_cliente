@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let numero_adivinar = Math.floor(Math.random()*100)+1
+        let acerto = false
+        let numero_usuario = parseInt(prompt("Introduce un número a adivinar (0 para salir)"))
+        let intentos = 0
+        
+        do{
+            intentos++
+            if(numero_adivinar == numero_usuario){
+                document.write(`Atopaches o número correcto <strong>${numero_adivinar}</strong> en ${intentos} intentos`)
+                acerto = true
+            } else{
+                if(numero_usuario > numero_adivinar){
+                    numero_usuario = parseInt(prompt("O numero introducido e maior que o número a adivinar (0 para salir)"))
+                }else{
+                    numero_usuario = parseInt(prompt("O numero introducido e menor que o número a adivinar (0 para salir)"))
+                }
+            }
+        }while(numero_usuario != 0 && !acerto)
+        
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>
