@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let examenes = parseInt(prompt("Introduce cantos exámenes se realizaron"))
+        let notas = []
+        let media = 0
+        let aprobado = false
+        let count = 0
+
+        for(let i = 0; i < examenes; i++){
+            notas[i] = Math.floor(Math.random()*11)
+            media += notas[i]
+        }
+
+        if(media/examenes >= 5){
+            for(let i = 0; i < examenes; i++){
+                if(notas[i] >= 4){
+                    count++
+                }         
+            }
+            if(count == examenes){
+                document.write(`Aprobou cunha media de ${media/examenes}`)
+            }else{
+                document.write(`Suspendiu cunha media de ${media/examenes} xa que en ${examenes - count} sacou menos dun 4`)
+            }
+        }else{
+            document.write(`Suspendiu cunha media de ${media/examenes}`)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

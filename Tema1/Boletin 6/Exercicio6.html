@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let lado1 = parseInt(prompt("Introduce o tamaño do primeiro lado"))
+        let lado2 = parseInt(prompt("Introduce o tamaño do segundo lado"))
+        let lado3 = parseInt(prompt("Introduce o tamaño do terceiro lado"))
+        let count = 0
+
+        if(lado1 == lado2){
+            count++
+        }
+        
+        if(lado1 == lado3){
+            count++
+        }
+
+        if(lado3 == lado2){
+            count++
+        }
+
+        if(count == 3){
+            document.write("O triágulo é equilatero")
+        }else if(count == 2){
+            document.write("O triángulo é isosceles")
+        }else{
+            document.write("O triágulo é escaleno")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

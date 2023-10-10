@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let valor_auxiliar = 0
+        let previo = 0
+        let actual = 0
+        let numero_arabico = 0
+        let numero_romano = prompt("Introduce un número en romano (non se aceptan numeros maiores a 4000):")
+
+        for(let i = 0; i < numero_romano.length; i++){
+            actual = char_to_number(numero_romano.charAt(i))
+            if(actual > previo){
+                numero_arabico -= 2*valor_auxiliar
+            }
+
+            if(actual != previo){
+                valor_auxiliar = 0
+            }
+
+            valor_auxiliar += actual
+            numero_arabico += actual
+            previo = actual
+        }
+
+        if(numero_arabico > 4000){
+            document.write("O número introducido non cumple as condicions")
+        }
+        document.write(`O número ${numero_romano} pasase a ${numero_arabico}`)
+
+        function char_to_number(letra){
+            switch(letra){
+                case "I": return 1;
+                case "V": return 5;
+                case "X": return 10;
+                case "L": return 50;
+                case "C": return 100;
+                case "D": return 500;
+                case "M": return 1000;
+                default: return -1;
+            }
+                
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

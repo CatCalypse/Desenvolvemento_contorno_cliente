@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let numero_arabico = parseInt(prompt("Introduce un número en romano (non se aceptan numeros maiores a 4000):"))
+        
+        
+        var romanMatrix = [
+            [1000, 'M'],
+            [900, 'CM'],
+            [500, 'D'],
+            [400, 'CD'],
+            [100, 'C'],
+            [90, 'XC'],
+            [50, 'L'],
+            [40, 'XL'],
+            [10, 'X'],
+            [9, 'IX'],
+            [5, 'V'],
+            [4, 'IV'],
+            [1, 'I']];
+
+        let numero_romano = convertToRoman(numero_arabico)
+        document.write(`${numero_romano}`)
+        function convertToRoman(num) {
+
+        if (num === 0) {
+            return '';
+        }
+        for (var i = 0; i < romanMatrix.length; i++) {
+            if (num >= romanMatrix[i][0]) {
+                return romanMatrix[i][1] + convertToRoman(num - romanMatrix[i][0]);
+            }
+        }
+    }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
