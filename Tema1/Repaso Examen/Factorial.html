@@ -7,18 +7,15 @@
     <title>Document</title>
 
     <script defer>
-        let array = []
+        let numero = parseInt(prompt("Introduce un numero para obter o seu factorial: "))
+        let resultado = 1
+        
+        for (let i = numero; i > 1; i--){
+            resultado *= i
 
-        for(let i = 0; i < 9; i++){
-            array[i] = Math.floor(Math.random()*50)+1
         }
 
-        for(let i = 0; i < 9; i++){
-            for(let j = 0; j < array[i]; j++){
-                document.write("*  ")
-            }
-            document.write("<br>")
-        }
+        document.write(`O factorial de ${numero} é ${resultado}`)
     </script> 
 </head>
 <body>

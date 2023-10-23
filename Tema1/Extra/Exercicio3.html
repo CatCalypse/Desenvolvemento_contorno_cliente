@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            display: inline-block;
+            width:20%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script defer>
+        let texto = prompt("Introduce unha frase a codificar");
+        let frase_codificada = "";
+        let caracter = "";
+
+        for(let i = 0; i < texto.length; i++){
+            caracter = texto.charAt(i);
+            if(caracter == "a" || caracter == "e" || caracter == "i" || caracter == "o" || caracter == "u"
+            || caracter == "A" || caracter == "E" || caracter == "I" || caracter == "O" || caracter == "U"){
+                frase_codificada += " "
+            }else if(caracter == " "){
+                
+                frase_codificada += " ";
+            }else{
+                frase_codificada += texto.charAt(i);
+            }
+        }
+
+        document.write(`${frase_codificada}`);
+    </script>
+</body>
+</html>

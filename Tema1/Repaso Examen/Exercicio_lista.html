@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let lista = []
+        let elemento = ""
+        let posicion = 0
+
+        let opcion = 0;
+
+        do{
+            console.log("1 - Insertar ao final da lista")
+            console.log("2 - Insertar ao inicio da lista")
+            console.log("3 - Insertar o elemento nunha posición determinada")
+            console.log("4 - Eliminar o último elemento da lista")
+            console.log("5 - Eliminar o primerio elemento da lista")
+            console.log("6 - Eliminar o elemento dunha posición determinada")
+            console.log("7 - Mostrar a lista")
+            console.log("8 - Salir")
+            console.log("")
+
+            do{
+                opcion = parseInt(prompt("Introduce a opción"))
+            }while(opcion < 1 && opcion > 8)
+            
+
+            switch (opcion){
+                case 1:
+                    elemento = prompt("Introduce o elemento a insertar:")
+                    lista.push(elemento)
+                    break;
+                case 2:
+                    elemento = prompt("Introduce o elemento a insertar:")
+                    lista.unshift(elemento) 
+                    break;
+                case 3:
+                    posicion = prompt("Introduce a posicón para insertar:")
+                    elemento = prompt("Introduce o elemento a insertar:")
+
+                    if(posicion < 0){
+                        lista.unshift(elemento)
+                    }else if(posicion >= lista.length){
+                        lista.push(elemento)
+                    }else{
+                        lista.splice(posicion, 0, elemento)
+                    }
+                    break;
+                case 4:
+                    lista.pop()
+                    break;
+                case 5:
+                    lista.shift()
+                    break;
+                case 6:
+                    posicion = prompt("Introduce a posicón para insertar:")
+
+                    if(posicion < 0){
+                        lista.shift()
+                    }else if(posicion >= lista.length){
+                        lista.pop()
+                    }else{
+                        lista.splice(posicion, 1)
+                    }
+                    break;
+                case 7:
+                    console.log(`${lista}`)
+                    break;
+                case 8:
+                    break;
+            }
+
+        }while(opcion != 8);AbstractRange
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>
