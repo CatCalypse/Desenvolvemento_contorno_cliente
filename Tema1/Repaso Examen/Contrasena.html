@@ -6,33 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script defer>
-        let primeira_palabra = prompt("Introduce a primeira palabra")
-        let segunda_palabra = prompt("Introduce a segunda palabra")
-        let palabra_auxiliar = ""
 
-        if(primeira_palabra.length == segunda_palabra.length){
-            for(let i = 0; i < primeira_palabra.length; i++){
-                palabra_auxiliar += primeira_palabra.charAt(i) 
-            }
-
-            for(let i = 0; i < segunda_palabra.length; i++){
-                if(palabra_auxiliar.indexOf(segunda_palabra.charAt(i)) != -1){
-                    palabra_auxiliar.splice(palabra_auxiliar.indexOf(segunda_palabra.charAt(i)), 1)
-                }else{
-
-                }
-            }
-
-            if(palabra_auxiliar.length == 0){
-                document.write("Son anagramas")
-            }else{
-                document.write("Non son anagramas")
-            }
-        }
-    </script> 
 </head>
 <body>
-    
+    <script defer>
+        let contrasena = prompt("Introduce a contraseña a comprobar");
+        let tamano_ok = false
+        let maiuscula_ok = false
+        let caracter_especial_ok = false
+
+
+        if(contrasena.length < 8){
+            document.write("<p style='color:red'>A contraseña ten menos de 8 caracteres</p>")
+        }else{
+            tamano_ok = true
+        }
+
+        if(contrasena == contrasena.toLocaleLowerCase()){
+            document.write("<p style='color:red'>A contraseña non ten unha maiúscula</p>")
+        }else{
+            maiuscula_ok = true
+        }
+
+        if(contrasena.indexOf("-") != -1 || contrasena.indexOf(";") != -1 || contrasena.indexOf(",") != -1
+        || contrasena.indexOf("_") != -1 || contrasena.indexOf(":") != -1){
+            caracter_especial_ok = true
+        }else{
+            document.write("<p style='color:red'>A contraseña non ten un dos caractreres especiais</p>")
+        }
+
+        if(tamano_ok && maiuscula_ok && caracter_especial_ok){
+            document.write("<p style='color:green'>A contraseña é correcta</p>")
+        }
+    </script> 
 </body> 
 </html>
