@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script defer>
+        let precio = 0
+        let desconto = 0
+        
+        
+        do{
+            precio = parseInt(prompt("Introduce o precio do artículo"))
+        }while(precio <= 0 || isNaN(precio))
+
+        do{
+            desconto = parseInt(prompt(("Introduce o desconto do artículo (de 0 a 100, sen introducir %)")))
+        }while(isNaN(desconto) || desconto < 0 || desconto > 100)  
+
+
+        let precio_axustado = axustePrecio(precio, desconto)
+
+        function axustePrecio(precio, desconto){
+            return precio * (1-(desconto/100))
+        }
+
+        document.write(`${precio_axustado}`)
+
+    </script>
+</body>
+</html>

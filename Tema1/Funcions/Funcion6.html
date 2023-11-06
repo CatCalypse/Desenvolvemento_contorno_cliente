@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script defer>
+        let letra = ""
+
+        do{
+            letra = prompt("Introduce un caracter")
+        }while(letra.length != 1 || !comprobarLetra(letra))
+
+        if(comprobarVogal(letra)){
+            document.write(`A letra introducida é a vogal ${letra}`)
+        }else{
+            document.write(`A letra introducida non é unha vogal`)
+        }
+
+        function comprobarLetra(letra){
+            letra = parseInt(letra)
+
+            if(isNaN(letra)){
+                return true
+            }else{
+                return false
+            }
+        }
+
+        function comprobarVogal(letra){
+            if(letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u"
+            || letra ==="A" || letra ==="E" || letra ==="I" || letra ==="O" || letra ==="U"){
+                return true
+            }else{
+                return false
+            }
+        }
+    
+    </script>
+</body>
+</html>
