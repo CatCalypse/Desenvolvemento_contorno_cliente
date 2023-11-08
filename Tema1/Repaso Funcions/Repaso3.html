@@ -9,20 +9,22 @@
 </head>
 <body>
     <script defer>
-        let num_dni = praseInt(prompt("Introduce o teu DNI"))
+        let num_dni = parseInt(prompt("Introduce o teu DNI"))
 
-        letraDNI(num_dni)
+        let letra = letraDNI(num_dni)
+        if(letra == ""){
+            document.write("Número mal introducido")
+        }else{
+            document.write(`A letra correspondente ao número ${num_dni} é ${letra}`)
+        }
 
         function letraDNI(num){
-            if(isNaN(parseInt(numero))){
-                return null
+            if(isNaN(parseInt(num))){
+                return ""
             }
-            let letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKET"
-            if(num.length != 8){
-                return null
-            }else{
-                return letraDNI.charAt(num%23)
-            }
+            
+            let letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE"
+            return letrasDNI.charAt(num%23)
         }
     </script>
 </body>
