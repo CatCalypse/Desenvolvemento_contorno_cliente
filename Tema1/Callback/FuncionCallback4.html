@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let texto = ""
+
+        textoFinal(texto, recollerCadea)
+
+        function recollerCadea(){
+            let cadea = ""
+            let texto = ""
+            do{
+                cadea = prompt("Introduce o texto")
+                if(cadea != ""){
+                    texto = texto + cadea + " "
+                }
+            }while(!cadea == "")
+            return texto
+        }
+
+        function textoFinal(texto, callback){
+            texto = callback()
+            
+            document.write(texto)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

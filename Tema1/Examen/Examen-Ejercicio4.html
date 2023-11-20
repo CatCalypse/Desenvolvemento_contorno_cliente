@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+
+    <script>
+        //crear array de persoas
+        let persoas = ["Luis", "Pepe", "Manuel", "Federico", "Jilberto"]
+
+        //crear mapa de persoas, gardando a posicion no array e o nome da persoa 
+        let mapa_persoas = new Map()
+
+        for(let i = 0; i < persoas.length; i++){
+            mapa_persoas.set(i, persoas[i])
+        }
+
+        //percorrer o mapa para mostrar a súa información
+        for(persoa of mapa_persoas){
+            document.write(persoa + "<br>")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

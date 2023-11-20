@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+
+
+        let Espanha = new Map([
+        [01, "Alava"],
+        [02, "Albacete"],
+        [03, "Alicante"],
+        [04, "Almeria"],
+        [05, "Avila"],
+        [06, "Badajoz"],
+        [07, "Baleares"],
+        [08, "Barcelona"],
+        [09, "Burgos"],
+        [10, "Cáceres"],
+        [11, "Cádiz"],
+        [12, "Castellón"],
+        [13, "Ciudad Real"],
+        [14, "Cordoba"],
+        [15, "La Coruña"],
+        [16, "Cuenca"],
+        [17, "Gerona"],
+        [18, "Granada"],
+        [19, "Guadalajara"],
+        [20, "Guipúzcua"],
+        [21, "Huelva"],
+        [22, "Huesca"],
+        [23, "Jaén"],
+        [24, "León"],
+        [25, "Lérida"],
+        [26, "La Rioja"],
+        [27, "Lugo"],
+        [28, "Madrid"],
+        [29, "Málaga"],
+        [30, "Murcia"],
+        [31, "Navarra"],
+        [32, "Orense"],
+        [33, "Asturias"],
+        [34, "Palencia"],
+        [35, "Las Palmas"],
+        [36, "Pontevedra"],
+        [37, "Salamanca"],
+        [38, "Santa Cruz de Tenerife"],
+        [39, "Cantabria"],
+        [40, "Segovia"],
+        [40, "Sevilla"],
+        [42, "Soria"],
+        [43, "Tarragona"],
+        [44, "Teruel"],
+        [45, "Toledo"],
+        [46, "Valencia"],
+        [47, "Valladolid"],
+        [48, "Vizcaya"],
+        [49, "Zamora"],
+        [50, "Zaragoza"],
+        [51, "Ceuta"],
+        [52, "Melilla"]
+        ]);
+
+        let codigo_postal = prompt("Introduce o coódigo postal")
+
+        imrpimirCidade(codigo_postal, comprobarCodigo)
+
+        function comprobarCodigo(cp){
+            if(cp.length == 5){
+                if(!isNaN(parseInt(cp))){
+                    return true
+                }else{
+                    return false
+                }
+            }else{
+                return false
+            }
+        }
+
+
+        function imrpimirCidade(cp, callback){
+            cidade = ""
+            if(callback(cp)){
+                
+                cp = parseInt(cp.substring(0, 2))
+                cidade = Espanha.get(cp)
+
+                document.write(`O código postal ${cp} correspondese con ${cidade}`)
+            }else{
+                document.write(`O código postal ${cp} ou non cumpre co tamaño (5 caracteres) ou conten letras`)
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

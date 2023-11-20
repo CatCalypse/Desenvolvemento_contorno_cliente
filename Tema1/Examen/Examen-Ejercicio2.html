@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+
+    <script>
+        //definición de variables
+        let paxina = ""
+        let dominio = ""
+        let cabecera = ""
+
+        //Comprobación de que a páxina introducida non sexa un espacio vacío
+        do{
+            paxina = prompt("Introduce unha páxina web")
+        }while(paxina == "")
+
+        //En caso de que a páxina introducida non teña a lonxitude mínima de 8 (www.*caracter*.*dominio de lonxitude 2 a 3*)
+        if(paxina.length >= 8){
+            // cabecera sempre ten lonxitude fixa, e sempre se atopa ao principo, polo que se collen os primeiros 4 caracteres
+            cabecera = paxina.substring(0,4)
+            
+            //comprobar que temos o caracter "." na páxina
+            if(paxina.lastIndexOf(".") != -1){
+                //usar a última aparición do caracter ".", xa que o dominio comeza con dito caracter
+                dominio = paxina.substring(paxina.lastIndexOf("."), paxina.length)
+            }
+            
+            //comprobar que a cabecera cumple o formato
+            if(cabecera == "www."){
+                //comprobar que o dominio ten a lonxitude adecuada
+                if(dominio.length == 3 || dominio.length == 4){ 
+                    //comprobar que o dominio non se compon de números
+                    if(isNaN(parseInt(dominio))){
+                        document.write(`A páxina ${paxina} cumple o formato`)
+                    }else{
+                        document.write(`A páxina ${paxina} non cumple o formato debido a que o dominio conten números`)
+                    }
+                }else{
+                    document.write(`A páxina ${paxina} non cumple o formato debido ao dominio`)
+                }
+            }else{
+                document.write(`A páxina ${paxina} non cumple o formato debido a cabecera`)
+            }
+        }else{
+            document.write(`A páxina ${paxina} non cumple o formato debido a que non ten caracteres suficientes como para cumplir co formato`)
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

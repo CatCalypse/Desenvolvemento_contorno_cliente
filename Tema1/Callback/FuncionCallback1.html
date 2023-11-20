@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        let idade = prompt("Introduce a idade")
+
+
+        validarIdade(idade, idadeCorrecta)
+
+        function idadeCorrecta(idade){
+            if(idade < 0 || idade > 120){
+                return false
+            }else{
+                return true
+            }
+        }
+
+        function validarIdade(idade, callback){
+            if(callback(idade)){
+                if(idade < 3){
+                    document.write("A persoa é un bebé")
+                }else if(idade < 11){
+                    document.write("A persoa é un neno")
+                }else if(idade < 18){
+                    document.write("A persoa é un adolescente")
+                }else{
+                    document.write("A persoa é adulta")
+                }
+            }else{
+                document.write("A idade introducida non é correcta")
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

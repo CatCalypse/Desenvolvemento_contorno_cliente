@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script defer>
+        let preimeiro_numero = 0
+        let segundo_numero = 0
+
+
+        do{
+            primeiro_numero = parseInt(prompt("Introduce o primeiro número"))
+        }while(isNaN(primeiro_numero))
+
+        do{
+            segundo_numero = parseInt(prompt("Introduce o primeiro número"))
+        }while(isNaN(segundo_numero))
+
+        imprimirNumeros(primeiro_numero, segundo_numero, calcularMaior)
+
+        function calcularMaior(primeiro, segundo){
+            if(primeiro > segundo){
+                return primeiro
+            }else if(segundo > primeiro){
+                return segundo 
+            }else{
+                return 0
+            }
+        }
+
+        function imprimirNumeros(primeiro, segundo, callback){
+            maior = callback(primeiro, segundo)
+
+            
+
+            if(maior == 0){
+                maior = primeiro
+                document.write(`${maior}<br>`)
+            }else if (maior == primeiro){
+                document.write(`${maior}<br>`)
+                return imprimirNumeros(primeiro - 1, segundo, callback)
+            }else{
+                document.write(`${maior}<br>`)
+                return imprimirNumeros(primeiro, segundo - 1, callback)
+            }
+
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+
+    <script>
+        //definición de variables
+        let orixe = "Rus"
+        let menor = -1
+        let maior = 0
+        let media = 0
+
+        //creación do mapa
+        let mapa_cidades = new Map()
+
+        //insertar valores ao mapa
+        mapa_cidades.set("Santiago", 100)
+        mapa_cidades.set("Carballo", 15)
+        mapa_cidades.set("Baio", 75)
+        mapa_cidades.set("Entecruces", 5)
+
+        //Calculo da distancia maior, menor, e a suma de todas as distancias
+        for(distancia of mapa_cidades.values()){
+            if(distancia > maior){
+                maior = distancia
+            }
+
+            if(menor == -1){
+                menor = distancia
+            }else if(distancia < menor){
+                menor = distancia
+            }
+            media += distancia
+        }
+
+        //Escritura da maior distancia a unha cidade e da menor distancia a unha cidade dende o orixe
+        for(cidade of  mapa_cidades.keys()){
+            if(mapa_cidades.get(cidade) == maior){
+                document.write(`A maior distancia dende ${orixe} é de ${maior}km ata ${cidade}<br>`)
+            }
+
+            if(mapa_cidades.get(cidade) == menor){
+                document.write(`A menor distancia dende ${orixe} é de ${menor}km ata ${cidade}<br>`)
+            }
+        }
+
+        //Escritura da media de distancia dende o orixe
+        media/=mapa_cidades.size //calculo da media de dustancia do orixe, empregando a suma de todas as distancias e cantas cidades se teñen no mapa
+        document.write(`A distancia media dende ${orixe} é de ${media}km<br>`)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

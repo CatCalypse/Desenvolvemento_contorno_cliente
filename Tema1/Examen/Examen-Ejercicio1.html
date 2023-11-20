@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+
+    <script>
+        //definicion de variables
+        let opcion = 0;
+        let alumnos = []
+        let nome = ""
+        let nota = -1
+        let nota_modificada = false;
+
+        //Seguir no menu mentras non se introduzca a opción 6
+        do{
+            //Impresión do menu por consola
+            console.log("\n1.Cargar alumnos")
+            console.log("2.Eliminar un alumno")
+            console.log("3.Agregar nota a un alumno")
+            console.log("4.Borrar nota a un alumno")
+            console.log("5.Mostrar os alumnos")
+            console.log("6.Salir\n")
+
+            //Comprobacion da opcion que esta sendo introducida
+            do{
+                opcion = parseInt(prompt("Introduce a acción a realizar"))
+            }while(opcion < 0 || opcion > 6 || isNaN(opcion))
+
+            //gestion da opcion
+            switch(opcion){
+                //Añadido do alumno e súnota ao array
+                case 1:
+                    nome = ""
+                    nota = -1
+                    //comprobar que o nome introducido non sexa vacío
+                    do{
+                        nome = prompt("Introduce o nome do alumno a engadir")
+                    }while(nome == "")
+                    
+                    //comprobar que a nota introducida non sexa menor a 0 ou maior a 10
+                    do{
+                        nota = prompt("Introduce a nota do alumno")
+                    }while(nota < 0 || nota > 10)
+                    alumnos.push([nome, nota])
+                    console.log("Elementos introducidos correctamente")
+
+                    break;
+                
+                case 2:
+                    //comprobación do nome introducido non sexa vacío
+                    do{
+                        nome = prompt("Introduce o nome do alumno a engadir")
+                    }while(nome == "")
+
+                    let alumno_eliminado = false;
+
+                    //Buscar o alumno mediante o seu nome
+                    for(let i = 0; i < alumnos.length;i++){
+                        //En caso de atopar un alumno co mesmo nome, eliminalo do array
+                        if(alumnos[i][0] == nome){
+                            alumnos.splice(i, 1)
+                            console.log("Alumno eliminado correctamente")
+                            alumno_eliminado = true;
+                            break;
+                        }
+                    }
+                    
+                    //mensaxe en caso de que o nome introducido nonm se corresponda con ningún dos alumnos do array
+                    if(!alumno_eliminado){
+                        console.log("Non se atopou dito alumno")
+                    }
+
+                    break;
+
+                case 3:
+                    nome = ""
+                    nota = -1
+                    nota_modificada = false;
+                    //comprobación do nome introducido non sexa vacío
+                    do{
+                        nome = prompt("Introduce o nome do alumno ao que se lle modifica a nota")
+                    }while(nome == "")
+                    
+                    //comprobar que a nota introducida non sexa menor a 0 ou maior a 10
+                    do{
+                        nota = prompt("Introduce a nota modificada do alumno")
+                    }while(nota < 0 || nota > 10)
+
+                    //En caso de atopar un alumno co mesmo nome, modificar a súa nota
+                    for(let i = 0; i < alumnos.length;i++){
+                        if(alumnos[i][0] == nome){
+                            alumnos[i][1] = nota
+                            console.log("Nota modificada correctamente")
+                            nota_modificada = true;
+                            break;
+                        }
+                    }
+
+                    //mensaxe en caso de que o nome introducido nonm se corresponda con ningún dos alumnos do array
+                    if(!nota_modificada){
+                        console.log("Non se atopu o alumno")
+                    }
+                    break;
+
+                case 4:
+                    nome = ""
+                    nota_modificada = false;
+                    
+                    //comprobación do nome introducido non sexa vacío
+                    do{
+                        nome = prompt("Introduce o nome do alumno ao que se lle modifica a nota")
+                    }while(nome == "")
+
+                    //En caso de atopar un alumno co mesmo nome, eliminar a súa nota
+                    for(let i = 0; i < alumnos.length;i++){
+                        if(alumnos[i][0] == nome){
+                            alumnos[i].splice(1, 1)
+                            console.log("Nota modificada correctamente")
+                            nota_modificada = true;
+                            break;
+                        }
+                    }
+
+                    //mensaxe en caso de que o nome introducido nonm se corresponda con ningún dos alumnos do array
+                    if(!nota_modificada){
+                        console.log("Non se atopu o alumno")
+                    }
+                    break;
+
+                case 5:
+                    //Mostrar todos os alumnos do array
+                    for(let i = 0; i < alumnos.length; i++){
+                        console.log(alumnos[i])
+                    }
+                    break;
+                case 6:
+                    break;
+            }
+        }while(opcion != 6)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

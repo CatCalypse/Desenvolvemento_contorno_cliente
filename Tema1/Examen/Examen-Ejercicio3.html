@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+
+    <script>
+        //creacion dos conxuntos
+        var conxunto_A = new Set()
+        var conxunto_B = new Set()
+        var union = new Set()
+        var interseccion = new Set()
+        var resta = new Set()
+
+        //añadir datos aos conxuntos base
+        conxunto_A.add(1).add(2).add(3).add(5).add(7)
+        conxunto_B.add(1).add(2).add(5).add(6).add(9).add(10)
+
+        //Impresion dos conxuntos
+        document.write("Conxunto A:")
+        for(let elemento of conxunto_A){
+            document.write(elemento)
+        }
+        document.write("<br><br>")
+
+
+        document.write("Conxunto B:")
+        for(let elemento of conxunto_B){
+            document.write(elemento)
+        }
+        document.write("<br><br>")
+        
+        //union de conxuntos
+        for(let elemento of conxunto_A){
+            union.add(elemento)
+        }
+        for(let elemento of conxunto_B){
+            union.add(elemento)
+        }
+
+        document.write("Union: ")
+        for(let elemento of union){
+            document.write(elemento)
+        }
+        document.write("<br>")
+
+        //intersección dos conxuntos
+        for(let elemento of conxunto_A){
+            if(conxunto_B.has(elemento)){
+                interseccion.add(elemento)
+            }
+        }
+        document.write("Interseccion: ")
+        for(let elemento of interseccion){
+            document.write(elemento)
+        }
+        document.write("<br>")
+
+
+        //Resta de conxuntos
+
+        for(let elemento of conxunto_A){
+            if(!conxunto_B.has(elemento)){
+                resta.add(elemento)
+            }
+        }
+        document.write("Resta: ")
+        for(let elemento of resta){
+            document.write(elemento)
+        }
+        document.write("<br>")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
