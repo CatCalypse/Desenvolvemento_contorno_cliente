@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        class cafetera{
+            constructor(maximo, actual){
+                if(maximo == undefined && actual == undefined){
+                    this.capacidadeMaxima = 1000
+                    this.cantidadeActual = 0
+                }else if(actual == undefined){
+                    this.capacidadeMaxima = maximo
+                    this.cantidadeActual = 0
+                }else{
+                    if(actual > maximo){
+                        actual = maximo
+                    }
+
+                    this.capacidadeMaxima = maximo
+                    this.cantidadeActual = actual
+                }
+            }
+
+            llenarCafetera(){
+                this.cantidadeActual = this.capacidadeMaxima
+            }
+
+            servirTaza(cantidade){
+                if(cantidade > this.cantidadeActual){
+                    console.log(`Como a cafetera non dispoñía de suficiente café, serviu ${this.cantidadeActual}ml`)
+                    this.cantidadeActual = 0
+                }else{
+                    console.log(`Serviuse unha taza de ${this.cantidadeActual}ml`)
+                    this.cantidadeActual -= cantidade
+                }
+            }
+
+            vaciarCafetera(){
+                this.cantidadeActual = 0
+            }
+
+            agregarCafe(cantidade){
+                if((cantidade + this.cantidadeActual) > this.capacidadeMaxima){
+                    console.log(`Co obxectivo de non desbordar a cafetera, enchiuse ata a súa capacidade máxima`)
+                    this.cantidadeActual = this.capacidadeMaxima
+                }else{
+                    this.cantidadeActual += cantidade
+                    console.log(`Engadironse ${cantidade}ml a cafetera. Ahora dispos de ${this.cantidadeActual}ml de café`)
+                }
+            }
+
+            mostrarCafe(){
+                console.log(`Capacidade Máxima: ${this.capacidadeMaxima}`)
+                console.log(`Cantidade Actual: ${this.cantidadeActual}`)
+                console.log(" ")
+            }
+        }
+
+        //Comprobación de que todo funciona de maneira correcta
+        let cafetera_vacia = new cafetera()
+        let cafetera_cap_maxima = new cafetera(500)
+        let cafetera_con_cafe = new cafetera(1500, 500)
+
+        cafetera_vacia.mostrarCafe()
+        cafetera_vacia.llenarCafetera()
+        cafetera_vacia.mostrarCafe()
+        cafetera_vacia.servirTaza(500)
+        cafetera_vacia.mostrarCafe()
+        cafetera_vacia.vaciarCafetera()
+        cafetera_vacia.mostrarCafe()
+        cafetera_vacia.agregarCafe(1500)
+        cafetera_vacia.mostrarCafe()
+        cafetera_vacia.vaciarCafetera()
+        cafetera_vacia.mostrarCafe()
+        cafetera_vacia.agregarCafe(500)
+        cafetera_vacia.mostrarCafe()
+        cafetera_vacia.servirTaza(1000)
+        cafetera_vacia.mostrarCafe()
+
+        cafetera_cap_maxima.mostrarCafe()
+        cafetera_con_cafe.mostrarCafe()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

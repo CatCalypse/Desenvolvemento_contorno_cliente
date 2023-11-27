@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Ordenador{
+            constructor(marca, modelo, ram = 4, capacidade = 512, pulgadas = 17){
+                this.marca = marca
+                this.modelo = modelo
+                this.ram = ram
+                this.capacidade = capacidade
+                this.pulgadas = pulgadas
+            }
+
+            toString(){
+                document.write(`O ordenador é de marca ${this.marca}, modelo ${this.modelo}.<br>
+                Ten unha pantalla de ${this.pulgadas} pulgadas, ${this.ram}GB de RAM e ${this.capacidade}GB de capacidade<br><br>`)
+            }   
+        }
+
+        let pc = new Ordenador("Asus", "ROG Strix");
+        pc.toString();
+        
+        let marca = ""
+        let modelo = ""
+
+        do{
+            marca = prompt("Introduce a marca")
+        }while(marca ==  "" || !isNaN(marca))
+
+        do{
+            modelo = prompt("Introduce o modelo")
+        }while(modelo == "" || !isNaN(modelo))
+
+        let pc2 = new Ordenador(marca, modelo);
+        pc2.toString();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

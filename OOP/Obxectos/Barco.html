@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        class barco{
+            constructor(maximo, carga, orixe, destino, motor){
+                if(maximo != undefined && orixe != undefined && destino != undefined && motor != undefined){
+                    this.maximo = maximo
+
+                    this.orixe = orixe
+                    this.destino = destino
+                    this.motor = motor
+                    if(carga != undefined){
+                        if(carga <= maximo){
+                            this.carga = carga
+                        }else{
+                            this.carga = 0
+                            console.log("Non se pode sobrecargar o barco")
+                        }
+                        this.carga = carga
+                    }else{
+                        this.carga = 0
+                    }
+                }
+            }
+
+            llenarBarco(){
+                this.carga = this.maximo
+            }
+
+            descargarCantidade(cantidade){
+                if(cantidade > this.carga){
+                    console.log(`Non se dispon de carga suficiente`)
+                    this.carga = 0
+                }else{
+                    console.log(`Descargaronse ${this.carga}kg`)
+                    this.carga -= cantidade
+                }
+            }
+
+            descargarBarco(){
+                this.carga = 0
+            }
+
+            cargarBarco(cantidade){
+                if((cantidade + this.carga) > this.maximo){
+                    console.log(`O barco non se pode sobrecargar`)
+                }else{
+                    this.carga += cantidade
+                    console.log(`Cargaronse ${this.cantidade}kg`)
+                }
+            }
+
+            mostrarDatos(){
+                Object.prototype.keys(myObject)
+            }
+        }
+
+        //Comprobación de que todo funciona de maneira correcta
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

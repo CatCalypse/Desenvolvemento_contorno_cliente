@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class contaBancaria{
+            constructor(propietario, saldo){
+                this.propietario = propietario
+                this. saldo = saldo
+            }
+
+            sacar_cartos(cantidade){
+                if(cantidade > this.saldo){
+                    console.log("Non se dispón de tanto saldo. Saldo actual " + this.saldo)
+                }else{
+                    this.saldo -= cantidade
+                    console.log("Retirouse un saldo de " + cantidade + "€")
+                }
+            }
+
+            ingreso(cantidade){
+                this.saldo += cantidade
+                console.log("Ingreso realizado correctamente")
+            }
+        }
+
+        let contaDineros = new contaBancaria("Michi", 100)
+
+        contaDineros.sacar_cartos(150)
+        contaDineros.ingreso(1500000)
+        contaDineros.sacar_cartos(10000)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
