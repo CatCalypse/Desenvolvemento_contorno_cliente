@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Telefono{
+            constructor(numero){
+                if(numero != undefined){
+                    this.numero = numero
+                }else{
+                    this.numero = 123456789
+                }
+
+            }
+
+            datos(){
+                document.write(`O número do teléfono é ${this.numero}<br>`)
+            }
+        }
+
+
+        class movil extends Telefono{
+            constructor(numero, marca, os){
+                super(numero)
+                if(marca != undefined){
+                    this.marca = marca                    
+                }else{
+                    this.marca = "Google"
+                }
+
+                if(os != undefined){
+                    this.os = os
+                }else{
+                    this.os ="Android"
+                }
+            }
+            datos(){
+                document.write(`O número do teléfono móvil é ${this.numero}. É de marca ${this.marca} e ten como sistema operativo ${this.os}<br>`)
+            }
+        }
+
+        class fijo extends Telefono{
+            constructor(numero, parede){
+                super(numero)
+
+                if(parede != undefined){
+                    this.parede = parede               
+                }else{
+                    this.parede = true
+                }
+            }
+            datos(){
+                if(this.parede){
+                    document.write(`O número do teléfono fixo é ${this.numero}. Atopase na parede<br>`)
+                }else{
+                    document.write(`O número do teléfono fixo é ${this.numero}. Non se atopa na parede<br>`)
+                }
+            }
+        }
+
+        let telf1 = new Telefono()
+        let telf2 = new movil()
+        let telf3 = new fijo()
+
+        let telfArray1 = new movil(123456789, "Google", "Android")
+        let telfArray2 = new movil(987654321, "Google", "Android")
+        let telfArray3 = new movil(192837465, "Apple", "Ios")
+
+        let array = [telfArray1, telfArray2, telfArray3]
+
+        for(let i = 0; i < array.length; i++){
+            array[i].datos()
+        }
+        document.write("<br><br>")
+        telf1.datos()
+        telf2.datos()
+        telf3.datos()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
