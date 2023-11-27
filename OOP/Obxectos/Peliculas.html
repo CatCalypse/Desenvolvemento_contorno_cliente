@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Pelicula{
+            constructor(director, lanzamento, actores, titulo, presuposto){
+                if(presuposto != undefined){
+                    this.presuposto = presuposto
+                }else{
+                    this.presuposto = 0
+                }
+
+                if(lanzamento != undefined){
+                    this.lanzamento = lanzamento
+                }else{
+                    this.lanzamento = -1;
+                }
+
+                this.director = director
+                this.actores = actores
+                this.titulo = titulo
+            }
+
+            toString(){
+                if(this.presuposto == 0){
+                    document.write(`A película ${this.titulo}, dirixida por ${this.director} e 
+                    estreada en ${this.lanzamento}, non conta cun presuposto. Os actores 
+                    participantes son ${this.actores}<br>`)
+                }else if(this.lanzamento = -1){
+                    document.write(`A película ${this.titulo}, dirixida por ${this.director} non
+                    foi estreada, conta cun presuposto de ${this.presuposto}€. Os actores 
+                    participantes son ${this.actores}<br>`)
+                }else{
+                    document.write(`A película ${this.titulo}, dirixida por ${this.director} e 
+                    estreada en ${this.lanzamento}, conta cun presuposto de ${this.presuposto}€. Os actores 
+                    participantes son ${this.actores}<br>`)
+                }
+            }
+
+            comrpobarIdade(){
+                let anoActual = 2023
+
+                if(this.lanzamento == -1){
+                    document.write("A película ainda non foi estreada")
+                }else if(this.lanzamento > anoActual){
+                    document.write(`A película estrearase en ${this.lanzamento}, Polo que ainda non ten idade`)
+                }else if(this.lanzamento == anoActual){
+                    document.write(`A película estreouse este ano`)
+                }else{
+                    document.write(`A película ten ${anoActual - this.lanzamento}`)
+                }
+            }
+        }
+
+        let director = "";
+        let lanzamento = "";
+        let actores = "";
+        let titulo = "";
+        let presuposto = "";
+
+        do{
+            director = prompt("Introduce o director")
+        }while(director == "" || !isNaN(parseInt(director)))
+
+        lanzamento = prompt("Introduce a data de lanzamento")
+
+        do{
+            actores = prompt("Introduce os actores")
+        }while(actores == "" || !isNaN(parseInt(actores)))
+
+        do{
+            titulo = prompt("Introduce o titulo")
+        }while(titulo == "" || !isNaN(parseInt(titulo)))
+
+        presuposto = prompt("Introduce o presuposto")
+
+        let pelicula = new Pelicula(director, lanzamento, actores, titulo, presuposto);
+        pelicula.toString()
+        pelicula.comrpobarIdade()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
