@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let libros = new Map();
+        libros.set(12345, "Ritmo de Guerra");
+        libros.set(54321, "Palabras Radiantes");
+
+        if(libros instanceof Map){
+            document.write(`Obxecto tipo: Mapa<br>`)
+            document.write(`Código ---- Título<br>`)
+            libros.forEach((value, key) => {
+                document.write(`${key} - ${value}<br>`)
+            });
+            document.write("<br>")
+        }
+
+        let personas =[["54156828Q", "Daniel Villar Pombo"],["12345678Z", "Juán Cstro Gonzáles"]]
+
+
+        if(personas instanceof Array){
+            document.write(`Obxecto tipo: Array<br>`)
+            for(let i = 0; i < personas.length; i++){
+                for(let j = 0; j < personas[i].length; j++){
+                    document.write((`${personas[i][j]} `))
+                }
+                document.write("<br>")
+            }
+            document.write("<br>")
+        }
+
+        class Casa{
+            numero = 0;
+            poboacion = "";
+            constructor(numero, poboacion){
+                this.numero = numero
+                this.poboacion = poboacion
+            }
+
+            toString(){
+                document.write(`Número: ${this.numero}<br>`)
+                document.write(`Población: ${this.poboacion}<br>`)
+            }
+        }
+
+        let casita = new Casa(3, "A Gudiña")
+
+        if(casita instanceof Object){
+            document.write(`Obxecto tipo: Object<br>`)
+            casita.toString()
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

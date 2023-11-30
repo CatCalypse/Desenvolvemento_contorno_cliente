@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        class Lugares{
+            poboacion = "Carballo"
+            codigo_postal = 15109
+
+            constructor(poboacion = "Carballo", codigo_postal = 15109){
+                this.poboacion = poboacion
+                this.codigo_postal = codigo_postal
+            }
+        }
+
+        let lugar1 = new Lugares();
+        let lugar2 = new Lugares();
+        let lugar3 = new Lugares();
+        let lugar4 = new Lugares();
+        let lugar5 = new Lugares();
+
+        let  lugares = []
+
+        lugares.push(lugar1)
+        lugares.push(lugar2)
+        lugares.push(lugar3)
+        lugares.push(lugar4)
+        lugares.push(lugar5)
+
+        console.log(lugares)
+
+        let keys = []
+        let values = []
+
+        lugares.forEach(element => {
+            keys = Object.keys(element)
+            values = Object.values(element)
+
+            for(let i = 0; i < keys.length; i++){
+                document.write(`${keys[i]}: ${values[i]} <br>`)
+            }
+            document.write("<br>")
+
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
