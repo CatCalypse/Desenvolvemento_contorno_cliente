@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        let frase = ""
+
+        frase = prompt("Introdcue unha frase")
+
+        function separarFrase(frase){
+            let mapaPalabras = new Map()
+            let palabras = frase.split(" ")
+
+            for(let i = 0; i < palabras.length; i++){
+                mapaPalabras.set(palabras[i], palabras[i].length)
+            }
+
+            return mapaPalabras
+        }
+
+        let mapaPalabras = separarFrase(frase)
+
+        document.write("<table border='1'>")
+        document.write("<tr><th>Palabra</th><th>Tamaño</th></tr>")
+
+        mapaPalabras.forEach((value, key) => {
+            document.write("<tr>")
+            document.write(`<td>${key}</td><td class='value'>${value}</td>`)
+            document.write("</tr>")
+        });
+
+        document.write("</table>")
+    </script>
+
+<style>
+    table{
+        width:fit-content;
+        margin:auto;
+    }
+    th{
+        min-width:100px;
+        background-color: black;
+        color:white;
+    }
+
+    .value{
+        text-align:right;
+    }
+</style>
+</head>
+
+<body>
+
+</body>
+
+</html>

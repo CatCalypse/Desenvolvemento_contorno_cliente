@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function matriz(x, y, callback){
+            let array=[]
+            for(let i = 0; i< x; i++){
+                array.push([]);
+                for(let j = 0; j < y; j++){
+                    array[i][j] = Math.floor(Math.random() * 500 + 1)
+                }
+            }
+            callback(array)
+        }
+
+        function imprimirMatriz(array){
+            document.write("<table border ='1'>")
+            for(let i = 0; i < array.length; i++){
+                document.write(`<tr>`)
+                for(let j = 0; j < array[i].length; j++){
+                    document.write(`<td>${array[i][j]}</td>`)
+                }
+                document.write("</tr>")
+            }
+            document.write("</table>")
+        }
+
+        matriz(5, 7, imprimirMatriz)
+        
+    </script>
+
+    <style>
+        table{
+            border-collapse:collapse;
+        }
+
+        td{
+            text-align: center;
+            width:30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

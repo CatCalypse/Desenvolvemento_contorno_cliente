@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let palabras = []
+
+        let palabra = ""
+
+        do{
+            palabra = prompt("Introdcue unha palabra (? para salir)")
+            if(palabra != '?'){
+                palabras.push(palabra)
+            }
+        }while(palabra != "?")
+
+        function contarPalabras(palabras){
+            let mapaPalabras = new Map()
+            for(let i = 0; i < palabras.length; i++){
+                if(mapaPalabras.has(palabras[i])){
+                    mapaPalabras.get(palabras[i])
+
+                    mapaPalabras.set(palabras[i], (mapaPalabras.get(palabras[i]))+1)
+                }else{
+                    mapaPalabras.set(palabras[i], 1)
+                }
+            }
+            return mapaPalabras
+        }
+
+        let mapaPalabras = contarPalabras(palabras)
+
+        document.write("<table border='1'>")
+        document.write("<tr><th>Palabra</th><th>Cantidade</th></tr>")
+
+        mapaPalabras.forEach((value, key) => {
+            document.write("<tr>")
+            document.write(`<td>${key}</td><td class='value'>${value}</td>`)
+            document.write("</tr>")
+        });
+
+        document.write("</table>")
+    </script>
+
+    <style>
+        table{
+            width:fit-content;
+            margin:auto;
+        }
+        th{
+            width:300px;
+            background-color: black;
+            color:white;
+        }
+
+        .value{
+            text-align:right;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>
