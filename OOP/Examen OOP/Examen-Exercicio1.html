@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+
+    <script>
+        let array_productos = []
+        let codigo = ""
+        let nome = ""
+        let provedor = ""
+        let existencias = 0
+        let ultima_venta = ""
+        let ultima_compra = ""
+
+        class Producto{
+            //definición de variables de clase
+            codigo = ""
+            nome = ""
+            provedor = "-"
+            existencias = 0
+            ultima_venta = "04/12/2023"
+            ultima_compra = "04/12/2023"
+
+            //constructor de Producto
+            constructor(codigo, nome, provedor, existencias = 0, ultima_venta, ultima_compra){
+                //En caso de introducir o producto sin telo comprado
+                if(provedor == undefined && existencias == undefined && ultima_compra == undefined){
+                    this.provedor = "-"
+                    this.existencias = 0
+                    this.ultima_compra = "04/12/2023"
+                }else{
+                    this.provedor = provedor
+                    this.existencias = existencias
+                    this.ultima_compra = ultima_compra
+                }
+
+                //En caso de non ter vendido aínda o producto
+                if(ultima_venta == undefined){
+                    this.ultima_venta = "04/12/2023"
+                }else{
+                    this.ultima_venta = ultima_venta
+                }
+
+                this.codigo = codigo
+                this.nome = nome
+            }
+
+            // Venta de productos (Petición de fecha debido a que non se emprega Date, para ter un dato non fixo, por iso non se comproba)
+            venta(cantidad_venta, fecha_venta){
+                if(this.existencias < cantidad_venta){
+                    document.write(`Non se dispón de ${cantidad_venta} artículos. Temos en almacén ${this.existencias} artículos<br>`)
+                }else{
+                    document.write(`Todo correcto, aquí tes os teus ${cantidad_venta} artículos<br>`)
+                    this.existencias -= cantidad_venta
+                    this.ultima_venta = fecha_venta
+                }
+                document.write("<br>")
+            }
+
+            // Compra de productos ao provedor (Petición de fecha debido a que non se emprega Date, para ter un dato non fixo, por iso non se comproba)
+            compra(cantidade_compra, fecha_compra, provedor_articulo){
+                document.write(`Realizouse a compra de ${cantidade_compra} artículos a ${provedor_articulo}<br><br>`)
+                this.existencias += cantidade_compra
+                this.ultima_compra = fecha_compra
+                this.provedor = provedor_articulo
+            }
+
+            // Mostrar os datos pedidos, en este caso o Nome, o provedor, as existencias e a data da última compra realizada
+            mostrarDatosProducto(){
+                document.write(`Nome: ${this.nome}<br>`)
+                document.write(`Provedor: ${this.provedor}<br>`)
+                document.write(`Existencias: ${this.existencias}<br>`)
+                document.write(`Data da última compra realizada: ${this.ultima_compra}<br><br>`)
+            }
+        }
+
+        //Petición de datos para a creación dos obxectos Producto
+        do{
+            //Comprobación de codigo
+            do{
+                codigo = prompt("Introduce o código do producto")
+            }while(codigo == "" || !isNaN(codigo))
+
+            //Comprobación de nome
+            do{
+                nome = prompt("Introduce o nome do producto")
+            }while(nome == "" || !isNaN(nome))
+
+            provedor = prompt("Introduce o provedor do producto (non se require)")
+
+            existencias = parseInt(prompt("Introduce as existencias do producto (non se require)"))
+
+            ultima_venta = prompt("Introduce a fecha da última venta (non se require)")
+
+            ultima_compra = prompt("Introduce a fecha da última compra (non se require)")
+
+            //asignado de datos aos obxectos e introducción no array
+            if(array_productos.length == 0){
+                //comprobación de cantos datos se lle envían ao constructor, en funcion de se foron introducidos ou non
+                if(provedor == "" && isNaN(existencias) && ultima_venta == ""){
+                    if(ultima_compra == ""){
+                        let articulo_1 = new Producto(codigo, nome)
+                        array_productos.push(articulo_1)
+                    }else{
+                        let articulo_1 = new Producto(codigo, nome, ultima_compra)
+                        array_productos.push(articulo_1)
+                    }
+                }else{
+                    let articulo_1 = new Producto(codigo, nome, provedor, existencias, ultima_venta, ultima_compra)
+                    array_productos.push(articulo_1)
+                }
+            }else if(array_productos.length == 1){
+                if(provedor == "" && isNaN(existencias) && ultima_venta == ""){
+                    if(ultima_compra == ""){
+                        let articulo_2 = new Producto(codigo, nome)
+                        array_productos.push(articulo_2)
+                    }else{
+                        let articulo_2 = new Producto(codigo, nome, ultima_compra)
+                        array_productos.push(articulo_2)
+                    }
+                }else{
+                    let articulo_2 = new Producto(codigo, nome, provedor, existencias, ultima_venta, ultima_compra)
+                    array_productos.push(articulo_2)
+                }
+                
+            }else{
+                if(provedor == "" && isNaN(existencias) && ultima_venta == ""){
+                    if(ultima_compra == ""){
+                        let articulo_3 = new Producto(codigo, nome)
+                        array_productos.push(articulo_3)
+                    }else{
+                        let articulo_3 = new Producto(codigo, nome, ultima_compra)
+                        array_productos.push(articulo_3)
+                    }
+                }else{
+                    let articulo_3 = new Producto(codigo, nome, provedor, existencias, ultima_venta, ultima_compra)
+                    array_productos.push(articulo_3)
+                }
+            }
+        }while(array_productos.length < 3)
+
+        //Mostrado de datos de todos os productos
+        array_productos.forEach(product => {
+            product.mostrarDatosProducto()
+        });
+
+
+        //Comprobación de que tanto o método compra como o método venta funcionan correctamente
+        array_productos[0].compra(500, "05/12/2023", "Amazon")
+        array_productos[0].mostrarDatosProducto()
+
+        array_productos[0].venta(1000, "06/12/2023")
+        array_productos[0].mostrarDatosProducto()
+
+        array_productos[0].venta(250, "06/12/2023")
+        array_productos[0].mostrarDatosProducto()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

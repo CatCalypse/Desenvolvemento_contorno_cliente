@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+    <script>
+        let mapaFroitas = new Map()
+        mapaFroitas.set("pera", 1.25)
+        mapaFroitas.set("maza", 1.7)
+        mapaFroitas.set("kiwi", 2.9)
+        mapaFroitas.set("mandarina", 1.19)
+        mapaFroitas.set("fresa", 3.75)
+
+        let fruta_pedir = ""
+        let kilos = 0
+
+        fruta_pedir = prompt("Introduce a fruta que queres pedir: Pera, Maza, Kiwi, Mandarina, Fresa")
+        fruta_pedir = fruta_pedir.toLowerCase()
+
+        kilos = (Math.round(parseFloat(prompt("Cantos kilos queres?"))*100))/100
+
+        function mostrarPrezos(mapaFroitas){
+            let claves = []
+            let valores = []
+
+            for(froita of  mapaFroitas.keys()){
+                claves.push(froita)
+            }
+
+            for(prezo of  mapaFroitas.values()){
+                valores.push(prezo)
+            }
+
+            document.write("Froita Prezo<br>")
+
+            for(let i = 0; i < claves.length; i++){
+                document.write(`${claves[i]} ${valores[i]}€<br>`)
+            }
+            document.write("<br>")
+        }
+
+        function comprobarFroita(mapaFroitas, froita, kilos){
+            if(mapaFroitas.has(froita)){
+                let precio_base = mapaFroitas.get(froita)
+                let precio_final =  (Math.round(parseFloat(precio_base * kilos)*100))/100
+                document.write(`O precio por ${kilos}kg de ${froita} é de ${precio_final}€`)
+            }else{
+                document.write(`a froita ${froita} non existe, por favor escolla outra`)
+            }
+        }
+
+        mostrarPrezos(mapaFroitas)
+
+        comprobarFroita(mapaFroitas, fruta_pedir, kilos)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

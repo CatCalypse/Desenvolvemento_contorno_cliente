@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+    <script>
+        let lugar_actual = ""
+        let lugar_destino = ""
+        let km_percorridos = 0.0
+
+        //Creación da clase
+        class NaveEspacial{
+            lugar_actual = ""
+            lugar_destino = ""
+            km_percorridos = 0.0
+
+            constructor(lugar_actual, lugar_destino, km_percorridos){
+                this.lugar_actual = lugar_actual
+                this.lugar_destino = lugar_destino
+                this.km_percorridos = km_percorridos
+            }
+
+            //Metodo de arranque. En caso de a distancia ser menor ou igual a 0 non se inicia a viaxe
+            arranque(distancia){
+                if(distancia > 0){
+                    document.write(`Realizouse a viaxe de ${this.lugar_actual} a ${this.lugar_destino}. Dita viaxe foron ${distancia}km<br><br>`)
+                    this.km_percorridos = (Math.round((distancia + this.km_percorridos)*100))/100
+                }else{
+                    document.write(`Non se poden realizar viaxes de distancia menor a 0.0km<br><br>`)
+                }
+            }
+        }
+
+        //Petición e comprobación dos datos a pedir
+        do{
+            lugar_actual = prompt("Introduce o lugar actual")
+        }while(lugar_actual == "" || !isNaN(lugar_actual))
+
+        do{
+            lugar_destino = prompt("Introduce o lugar de destino")
+        }while(lugar_destino == "" || !isNaN(lugar_destino))
+
+        do{
+            //convertir os km introducidos a float
+            km_percorridos = parseFloat(prompt("Introduce os kilometros percorridos"))
+        }while(km_percorridos == "" || isNaN(km_percorridos))
+
+        //creación do obxecto cos datos introducidos
+        let leviatan = new NaveEspacial(lugar_actual, lugar_destino, km_percorridos)
+
+        leviatan.arranque(30);
+
+        //comprobar que o obxecto non é unha instancia de Map
+        if(leviatan instanceof Map){
+            document.write("Esto non é unha nave espacial, non nos sirve para viaxar")
+        }else{
+            //Impresión das claves e dos seus valores
+            let claves = Object.keys(leviatan)
+            let valores = Object.values(leviatan)
+
+            for(let i = 0; i < claves.length; i++){
+                document.write(`${claves[i]}: ${valores[i]}<br>`)
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+
+    <script>
+        let frase_inicio = "TEST      test" 
+        let frase_fin = " Frase TEST"
+
+        function concatenar(inicio, fin){
+            let frase = ""
+            let frase_auxiliar = inicio.concat(fin)
+            let palabras = frase_auxiliar.split(" ")
+
+            for(let i = 0; i < palabras.length; i++){
+                if(palabras[i] == ""){
+
+                }else{
+                    frase +=palabras[i]
+                }
+            }
+
+            return frase
+        }
+
+        function embellecer(inicio, fin, callback){
+            let frase = callback(inicio, fin)
+            
+            return frase.toLowerCase()
+        }
+
+        function imprimir(inicio, fin, callback){
+            frase = callback(inicio, fin, concatenar)
+            document.write(`Frase embellecida: ${frase}`)
+        }
+
+        imprimir(frase_inicio, frase_fin, embellecer)
+
+        </script>
+</head>
+<body>
+    
+</body>
+</html>
