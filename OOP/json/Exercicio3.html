@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+
+    <script>
+        let libro1 = '{"titulo":"El camino de los reyes","autor":"Brandon Sanderson","lanzamiento":2010}'
+        let libro2 = '{"titulo":"Palabras Radiantes","autor":"Brandon Sanderson","lanzamiento":2014}'
+        let libro3 = '{"titulo":"Juramentada","autor":"Brandon Sanderson","lanzamiento":2017}'
+        let libro4 = '{"titulo":"Ritmo de guerra","autor":"Brandon Sanderson","lanzamiento":2020}'
+
+        libro1 = JSON.parse(libro1)
+        libro2 = JSON.parse(libro2)
+        libro3 = JSON.parse(libro3)
+        libro4 = JSON.parse(libro4)
+        
+        let libros = [libro1, libro2, libro3, libro4]
+
+        libros.forEach(element => {
+            document.write(`${element.titulo}<br>`)
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+
+        let palabra1 = prompt("Escribe una palabra");
+        let palabra2 = prompt("Escribe otra palabra");
+
+        function mismasLetras(palabra1, palabra2) {
+            for (var i = 0; i < palabra2.length; i++) {
+                if (palabra1.includes(palabra2[i])) {
+                    var contador = 1;
+                }
+            }
+            if (contador == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function resultado(palabra1, palabra2, callback) {
+            if (callback(palabra1,palabra2==true)) {
+                console.log("Son iguales");
+            } else {
+                console.log("Non son iguales");
+            }
+        }
+
+        resultado(palabra1,palabra2,mismasLetras);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

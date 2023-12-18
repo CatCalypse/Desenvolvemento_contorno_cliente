@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script defer>
+        let array = []
+
+        for(let i = 0; i < 3; i++){
+            array.push([])
+            for(let j = 0; j < 3; j++){
+                array[i].push(Math.floor(Math.random()*10));
+            }
+        }
+
+        function diagonalMaior(array){
+            for(let i = 0; i < array.length; i++){
+                for(let j = 0; j < array[i].length; j++){
+                    if(i == 0 && j == 0){
+
+                    }else if(i == 1 && j == 1){
+                        
+                    }else if(i == 2 && j ==2){
+
+                    }else{
+                        array[i][j] = 0;
+                    }
+                }
+            }
+        }
+
+        function imprimirArray(array){
+            for(let i = 0; i < array.length; i++){
+                for(let j = 0; j < array[i].length; j++){
+                    document.write(`${array[i][j]} `)
+                }
+                document.write("<br>")
+            }
+            document.write("<br>")
+        }
+
+        
+
+        imprimirArray(array)
+
+        diagonalMaior(array)
+
+        imprimirArray(array)
+    </script>
+</body>
+</html>
