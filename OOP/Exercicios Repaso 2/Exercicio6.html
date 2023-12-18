@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        class Vehiculo{
+            modelo = ""
+            capacidade = ""
+            constructor(modelo, capacidade){
+                this.modelo = modelo;
+                this.capacidade = capacidade;
+            }
+
+            describe(){
+                document.write(`Modelo: ${this.modelo}. Capacidade: ${this.capacidade}<br>`);
+            }
+        }
+
+        class Avion extends Vehiculo{
+            aerolinea = "";
+            constructor(modelo, capacidade, aerolinea){
+                super(modelo, capacidade);
+                this.aerolinea = aerolinea;
+            }
+
+            fly(){
+                document.write(`Modelo: ${this.modelo}. Aerolinea: ${this.aerolinea}<br>`);
+            }
+        }
+
+        let avioncito = new Avion("Boeing", 200, "Ryanair")
+
+
+        avioncito.describe()
+        avioncito.fly()
+    
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

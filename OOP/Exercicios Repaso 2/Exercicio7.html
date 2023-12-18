@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer>
+        class User{
+            nome = "";
+            correo = "";
+            socialnetid = "";
+
+            constructor(nome, correo, socialnetid){
+                if(socialnetid == undefined){
+                    this.nome = nome
+                    this.correo = correo
+                }else if(correo == undefined){
+                    this.nome = nome
+                    this.socialnetid = socialnetid
+                }
+            }
+        }
+
+        let usuario1 = new User("Daniel", "dvillar36@gmail.com")
+        let usuario2 = new User("Jose", undefined, "joselitoig")
+
+        document.write(`Usuario1: ${usuario1.nome}. Correo: ${usuario1.correo}<br>`)
+        document.write(`Usuario2: ${usuario2.nome}. Socialnetid: ${usuario2.socialnetid}<br>`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
