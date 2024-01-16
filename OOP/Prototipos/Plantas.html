@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let planta1 = '{"nome":"Carballo","especie":"Quercus Robur","orixe":"Europa","estacion_xermen":"Outono","estacion_poda":"Verano"}'
+        let planta2 = '{"nome":"Eucalipto","especie":"Eucalyptus Globulus","orixe":"Australia","estacion_xermen":"Outono","estacion_poda":"Verano"}'
+        let planta3 = '{"nome":"Pino","especie":"Pinus Sylvestris","orixe":"Europa y Asia","estacion_xermen":"Outono","estacion_poda":"Verano"}'
+
+        let plantas = [JSON.parse(planta1),JSON.parse(planta2),JSON.parse(planta3)]
+
+        for(let i = 0; i < plantas.length; i++){
+            document.write(`Nome: ${plantas[i].nome}<br>`)
+            document.write(`Especie: ${plantas[i].especie}<br>`)
+            document.write(`Orixe: ${plantas[i].orixe}<br>`)
+            document.write(`Estación de xermen: ${plantas[i].estacion_xermen}<br>`)
+            document.write(`Estación de poda: ${plantas[i].estacion_poda}<br>`)
+            document.write("<br><br>")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

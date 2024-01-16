@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const currentDate = new Date();
+
+        let ano = prompt("Introduce o teu ano de nacemento")
+        let mes = prompt("Introduce o teu mes de nacemento")
+        let dia = prompt("Introduce o teu dia de nacemento")
+
+        let data_nacemento = new Date(ano, mes -1, dia);
+
+        let segundos = (currentDate.getTime() - data_nacemento.getTime()) / 1000;
+        let dias = segundos/86400
+
+        document.write(`Pasaron ${Math.round(dias)} dias`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

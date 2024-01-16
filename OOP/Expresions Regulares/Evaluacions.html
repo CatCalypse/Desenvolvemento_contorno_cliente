@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluacions</title>
+
+    <script defer>
+        let regex = /\d{5}$/
+        let proba = 11234
+
+        document.write(`Código postal: ${regex.test(proba)}<br><br>`);
+
+        regex = /^[^\d]$/
+        proba = "c112a34b"
+        document.write(`Código postal: ${regex.test(proba)}<br><br>`);
+
+        regex = /^\w+@[a-z]+\.[a-z]+$/
+        proba = "dvillar36@gmail.com"
+        document.write(`Código postal: ${regex.test(proba)}<br><br>`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script defer>
+        function Traballo(descripcion, n_horas, precio_hora, IVA){
+            this.descripcion = descripcion
+            this.n_horas = n_horas
+            this.precio_hora = precio_hora
+            this.IVA = 21
+
+            this.datosTraballo = function(){
+                document.write(`Descrpición: ${this.descripcion}<br>`)
+                document.write(`Número de horas: ${this.n_horas}<br>`)
+                document.write(`Precio por hora: ${this.precio_hora}€<br>`)
+                document.write(`IVA: ${this.IVA}%<br>`)
+            }
+
+            this.precioFinal = function(){
+                document.write(`Precio final: ${(this.n_horas * this.precio_hora)*(1+(this.IVA/100))}€<br>`)
+            }
+        }
+
+        let descrpicion = prompt("Introduce a descripcion do traballo:")
+        let n_horas = parseInt(prompt("Introduce o número de horas traballadas:"))
+        let precio_hora = parseFloat(prompt("Introduce o precio por hora:"))
+
+        let traballo_fontaneria = new Traballo(descrpicion, n_horas, precio_hora)
+
+        traballo_fontaneria.datosTraballo()
+        traballo_fontaneria.precioFinal()
+
+        let fecha = new Date(2024,0,8)
+
+        Traballo.prototype.fecha_pago = fecha.toLocaleDateString()
+
+        document.write("<br>")
+        traballo_fontaneria.datosTraballo()
+        traballo_fontaneria.precioFinal()
+        document.write(`Fecha de pago: ${traballo_fontaneria.fecha_pago}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

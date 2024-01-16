@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer>
+        function Almacen(nome, ubicacion, n_productos){
+            this.nome = nome
+            this.ubicacion = ubicacion
+            this.n_productos = n_productos
+
+            this.datos = function(){
+                document.write(`Nome: ${this.nome}<br>`)
+                document.write(`Ubicación: ${this.ubicacion}<br>`)
+                document.write(`Número de productos: ${this.n_productos}<br>`)
+            }
+        }
+
+        let almacen1 = new Almacen("Xoguetes", "Laxe", 200)
+        almacen1.datos()
+
+        Almacen.prototype.facturacion_anual = 100000
+
+        Almacen.prototype.verFacturacion = function(){
+            document.write(`Facturación anual: ${this.facturacion_anual}€<br>`)
+        }
+
+        document.write("<br>")
+        almacen1.datos()
+        almacen1.verFacturacion()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

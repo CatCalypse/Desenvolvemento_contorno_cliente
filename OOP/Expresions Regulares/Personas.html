@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let json = '{"Nome":"pepe", "Apelidos":"Sánchez Riveiro", "Idade":34}'
+
+        let Persona = JSON.parse(json);
+
+        Persona.verInfo = function(){
+            document.write(`Nome: ${this.Nome}<br>`)
+            document.write(`Apelidos: ${this.Apelidos}<br>`)
+            document.write(`Idade: ${this.Idade}<br><br>`)
+        }
+
+        let array_personas = []
+
+        Persona.engadirDatos = function(Nome, Apelidos, Idade){
+            this.Nome = Nome
+            this.Apelidos = Apelidos
+            this.Idade = Idade
+        }
+
+        let novaPersona = Object.create(Persona);
+        novaPersona.engadirDatos("Luis", "Gómez Pérez", 25)
+        array_personas.push(novaPersona);
+
+        novaPersona = Object.create(Persona);
+        novaPersona.engadirDatos("Pepe", "Sánchez Riveiro", 34)
+        array_personas.push(novaPersona);
+
+        novaPersona = Object.create(Persona);
+        novaPersona.engadirDatos("Julia", "Blanco Amor", 26)
+        array_personas.push(novaPersona);
+
+        for(let i = 0; i < array_personas.length; i++){
+            document.write(`Persoa ${i+1}:<br><br>`)
+            array_personas[i].verInfo()
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

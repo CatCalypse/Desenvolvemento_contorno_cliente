@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma Cadeas</title>
+
+    <script defer>
+        String.prototype.sumaCadeas = function(cadea_sumar){
+            return (this.length + cadea_sumar.length)
+        }
+
+        let cadea1 = prompt("Introduce a primeira cadea")
+        let cadea2 = prompt("Introduce a segunda cadea")
+
+        document.write(`A suma das lonxitudes de ambas palabras é ${cadea1.sumaCadeas(cadea2)}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

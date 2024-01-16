@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Mascota(nome, direccion, NIM, idade){
+            this.nome = nome
+            this.direccion = direccion
+            this.NIM = NIM
+            this.idade = idade
+        }
+
+        let mascotita = new Mascota("Michi", "Casa Local", 15, 5)
+
+        let mascota_json = JSON.stringify(mascotita)
+
+        document.write(mascota_json)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

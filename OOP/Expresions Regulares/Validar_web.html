@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Web</title>
+
+    <script defer>
+        //let web = prompt("Introduce o enlace a páxina web")
+        
+        let web = "https://youtube.com"
+
+        function validarWeb(web){
+            let regex = /^http(s)?:\/\/(www\.)?[a-z0-9]+\.[a-z]{2,3}$/
+            if(regex.test(web)){
+                document.write(`O enlace a ${web} é válido`)
+            }else{
+                document.write(`O enlace a ${web} non é válido`)
+            }
+        }
+
+        validarWeb(web)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
