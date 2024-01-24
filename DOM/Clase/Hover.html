@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover</title>
+
+    <style>
+        html, body{
+            margin:0px;
+            height:100%;
+            width:100%;
+        }
+
+        div{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .wrapper{
+            width:100%;
+            height: 100%;
+        }
+
+        #red{            
+            width:50%;
+            height: 100%;
+            background-color: red;
+        }
+
+        #blue{
+
+            width:50%;
+            height: 100%;
+            background-color: blue;
+        }
+        
+        #text_blue{
+            margin:auto;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="red"><p id="text_red"></p></div>
+        <div id="blue"><p id="text_blue"></p></div>
+    </div>
+    <script>
+        `use strict`
+
+        function modificarAreaVermella(){
+            lado_vermello.style.backgroundColor= "green"
+            texto_azul.textContent = "Rato enriba da primeira área"
+            texto_azul.style.color = "white"
+        }
+        
+        function reiniciarAreaVermella(){
+            lado_vermello.style.backgroundColor= "red"
+            texto_azul.textContent = ""
+        }
+
+        let lado_vermello = document.querySelector("#red")
+        let texto_azul = document.querySelector("#text_blue")
+
+        lado_vermello.addEventListener("mouseover", modificarAreaVermella)
+        lado_vermello.addEventListener("mouseout", reiniciarAreaVermella)
+    </script>
+</body>
+</html>

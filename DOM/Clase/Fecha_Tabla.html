@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fecha Tabla</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="boton">Boton</button>
+    <br><br>
+    <table id="table" border="1">
+        <tr>
+            <th>Hora del click</th>
+        </tr>
+    </table>
+    <script>
+        `use strict`
+
+        function engadirTabla() {
+            let tabla = document.querySelector("#table");
+            let tr = document.createElement("tr")
+            let td = document.createElement("td")
+
+            let fecha = new Date();
+
+            td.append(fecha)
+            tr.append(td)
+            tabla.append(tr) 
+        }
+
+        let boton = document.querySelector("#boton")
+
+        boton.addEventListener("click", engadirTabla)
+    </script>
+</body>
+
+</html>

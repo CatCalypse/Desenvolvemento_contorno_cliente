@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsador</title>
+</head>
+
+<body>
+    <button id="crear">Crear Parrafo</button>
+    <button id="recorrer">Recorrer Parrafos</button>
+    <div id="contenedor"></div>
+    
+    <script>
+        let contenendor = document.querySelector("#contenedor")
+        
+        
+        function crearParrafo(){
+            let parrafos = contenendor.querySelectorAll("p")
+            let p = document.createElement("p")
+
+            if(parrafos.length > 0){
+                p.innerText= "Parrafo " + (parrafos.length+1)
+            }else{
+                p.innerText= "Parrafo 1"
+            }
+
+            contenendor.append(p)
+        }
+
+        function recorrerParrafo(){
+            let parrafos = contenendor.querySelectorAll("p")
+            for(let i = 0; i < parrafos.length; i++){
+                if((i +1 ) %2 == 0){
+                    parrafos[i].style.color = "red"
+                }else{
+                    parrafos[i].style.color = "green"
+                }
+            }
+        }
+
+        let crear = document.querySelector("#crear")
+        crear.addEventListener("click", crearParrafo)
+
+        let recorrer = document.querySelector("#recorrer")
+        recorrer.addEventListener("click", recorrerParrafo)
+    </script>
+</body>
+
+</html>

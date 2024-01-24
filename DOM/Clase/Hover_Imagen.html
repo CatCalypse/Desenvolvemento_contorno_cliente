@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover</title>
+
+    <style>
+        html, body{
+            margin:0px;
+            height:100%;
+            width:100%;
+        }
+
+        div{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .wrapper{
+            width:100%;
+            height: 100%;
+        }
+
+        #gray{            
+            width:50%;
+            height: 100%;
+            background-color:lightgray;
+        }
+
+        #blue{
+            width:50%;
+            height: 100%;
+            background-color:lightblue;
+        }
+        
+        #text_blue{
+            margin:auto;
+            font-size: 1.5em;
+        }
+
+        img{
+            margin:auto;
+            width:300px;
+            height:300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="gray"><img src="imagenes/cat1.jpg" alt="imagen 1" id="cat1"></div>
+        <div id="blue"><img src="imagenes/cat2.jpg" alt="imagen 1" id="cat2"></div>
+    </div>
+    <script>
+        `use strict`
+        let lado_gris= document.querySelector("#gray")
+        let lado_azul = document.querySelector("#blue")
+
+        let img_cat1 = document.querySelector("#cat1")
+        let img_cat2 = document.querySelector("#cat2")
+
+        function modificarImagenes(){
+            img_cat1.src = "imagenes/cat2.jpg"
+            img_cat2.src = "imagenes/cat1.jpg"
+        }
+        
+        function reiniciarImagenes(){
+            img_cat1.src = "imagenes/cat1.jpg"
+            img_cat2.src = "imagenes/cat2.jpg"
+        }
+
+
+
+        lado_gris.addEventListener("mouseover", modificarImagenes)
+        lado_azul.addEventListener("mouseover", reiniciarImagenes)
+    </script>
+</body>
+</html>

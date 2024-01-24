@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsador</title>
+</head>
+
+<body>
+    <p id="pulsacions">5</p>
+    <button id="suma">Incrementar</button>
+    <button id="resta">Reducir</button>
+    <button id="reinicio">Reiniciar</button>
+    <script>
+        `use strict`
+        pulsos = 5
+        elemento_pulsos = document.querySelector("#pulsacions")
+
+        function incrementarPulsaciones() {
+            if (pulsos < 10) {
+                pulsos++
+                document.querySelector("#pulsacions").textContent = pulsos;
+
+            }
+
+            if(pulsos > 0){
+                elemento_pulsos.style.color = "Initial"
+                elemento_pulsos.style.fontWeight = "Initial"
+                elemento_pulsos.style.fontSize = "Initial"
+            }
+
+            if (pulsos == 10) {
+                elemento_pulsos.style.color = "red"
+                elemento_pulsos.style.fontWeight = "bolder"
+                elemento_pulsos.style.fontSize = "1.25em"
+            }
+        }
+
+        function reducirPulsaciones() {
+            if (pulsos > 0) {
+                pulsos--
+                elemento_pulsos.textContent = pulsos;
+            } else {
+                elemento_pulsos.textContent = 0;
+            }
+
+            if (pulsos < 10) {
+                elemento_pulsos.style.color = "Initial"
+                elemento_pulsos.style.fontWeight = "Initial"
+                elemento_pulsos.style.fontSize = "Initial"
+            }
+            
+
+            if(pulsos == 0){
+                elemento_pulsos.style.color = "green"
+                elemento_pulsos.style.fontWeight = "bolder"
+                elemento_pulsos.style.fontSize = "1.25em"
+            }
+        }
+
+        function reiniciarPulsaciones() {
+            pulsos = 5
+            elemento_pulsos.textContent = 5;
+            elemento_pulsos.style.color = "Initial"
+            elemento_pulsos.style.fontWeight = "Initial"
+            elemento_pulsos.style.fontSize = "Initial"
+        }
+
+        let suma = document.querySelector("#suma")
+        suma.addEventListener("click", incrementarPulsaciones)
+
+        let resta = document.querySelector("#resta")
+        resta.addEventListener("click", reducirPulsaciones)
+
+        let reinicio = document.querySelector("#reinicio")
+        reinicio.addEventListener("click", reiniciarPulsaciones)
+    </script>
+</body>
+
+</html>
