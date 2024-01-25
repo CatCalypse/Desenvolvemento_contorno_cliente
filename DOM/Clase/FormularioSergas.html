@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <style>
+        html,
+        body {
+            margin: 0px;
+            height: 100%;
+            width: 100%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            width: fit-content;
+            margin:auto;
+        }
+
+        #form_wrapper {
+            border: 1px solid black;
+            width: 400px;
+            height:300px;
+            margin:auto;
+            margin-top: 100px;
+            border-radius: 3.5px;
+        }
+
+        .form_input {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="form_wrapper">
+        <form method="post" id="formulario_datos">
+            <h3>Datos de Identificación</h3>
+            <div class="form_input">
+                <label for="n_documento">Número Documento</label>
+                <input type="text" name="n_documento" id="n_documento">
+            </div>
+            <div class="form_input">
+                <label for="apelido">Primeiro Apelido</label>
+                <input type="text" name="apelido" id="apelido" disabled>
+            </div>
+            <div class="form_input">
+                <label for="data_nacemento">Data de Nacemento:</label>
+                <input type="text" name="data_nacemento" id="data_nacemento" disabled>
+            </div>
+
+            <div class="form_input">
+                <input type="submit" value="Acceder" id="enviar" disabled>
+            </div>
+        </form>
+    </div>
+    <script defer>
+        let formulario = document.querySelector("#formulario_datos")
+
+        function comprobarDNI() {
+            let dni_usuario = formulario.querySelector("#n_documento").value
+            let expresion_regular = /^[0-9]{8}[A-Z]{1}$/
+
+            if (expresion_regular.test(dni_usuario)) {
+                let apelido = formulario.querySelector("#apelido").disabled = false;
+            } else {
+
+            }
+        }
+
+        function comprobarApelido() {
+            let apelido = formulario.querySelector("#apelido").value
+            let expresion_regular = /^[A-z]+$/
+
+            if (expresion_regular.test(apelido)) {
+                let data_nacemento = formulario.querySelector("#data_nacemento").disabled = false;
+            } else {
+
+            }
+        }
+
+        function comprobarDataNacemento() {
+            let data_nacemento = formulario.querySelector("#apelido").value
+            let expresion_regular = /^(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$/
+
+            if (expresion_regular.test(data_nacemento)) {
+                let enviar = formulario.querySelector("#enviar").disabled = false;
+            } else {
+
+            }
+        }
+
+        let dni_usuario = formulario.querySelector("#n_documento")
+        let apelido = formulario.querySelector("#apelido")
+        let data_nacemento = formulario.querySelector("#apelido")
+
+        dni_usuario.addEventListener("change", comprobarDNI)
+        apelido.addEventListener("change", comprobarApelido)
+        data_nacemento.addEventListener("change", comprobarDataNacemento)
+    </script>
+</body>
+
+</html>
