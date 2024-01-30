@@ -20,14 +20,14 @@
             flex-direction: column;
             row-gap: 20px;
             width: fit-content;
-            margin:auto;
+            margin: auto;
         }
 
         #form_wrapper {
             border: 1px solid black;
             width: 400px;
-            height:300px;
-            margin:auto;
+            height: 300px;
+            margin: auto;
             margin-top: 100px;
             border-radius: 3.5px;
         }
@@ -36,6 +36,12 @@
             display: flex;
             flex-direction: column;
         }
+
+        #escribir_datos{
+            width:300px;
+            margin:auto;
+        }
+
     </style>
 </head>
 
@@ -61,6 +67,11 @@
             </div>
         </form>
     </div>
+
+    <div id="escribir_datos">
+
+    </div>
+
     <script defer>
         let formulario = document.querySelector("#formulario_datos")
 
@@ -87,8 +98,8 @@
         }
 
         function comprobarDataNacemento() {
-            let data_nacemento = formulario.querySelector("#apelido").value
-            let expresion_regular = /^(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$/
+            let data_nacemento = formulario.querySelector("#data_nacemento").value
+            let expresion_regular = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/
 
             if (expresion_regular.test(data_nacemento)) {
                 let enviar = formulario.querySelector("#enviar").disabled = false;
@@ -97,13 +108,49 @@
             }
         }
 
+        function escribirDatos(event) {
+            event.preventDefault()
+
+            let div_escribir = document.querySelector("#escribir_datos")
+            let dni = formulario.querySelector("#n_documento").value
+            let apelido = formulario.querySelector("#apelido").value
+            let data = formulario.querySelector("#data_nacemento").value
+
+            let content = div_escribir.querySelectorAll("p")
+
+            if (content.length == 0) {
+                let p1 = document.createElement("p")
+                let p2 = document.createElement("p")
+                let p3 = document.createElement("p")
+
+                p1.textContent = dni
+                div_escribir.append(p1)
+
+                p2.textContent = apelido
+                div_escribir.append(p2)
+
+                p3.textContent = data
+                div_escribir.append(p3)
+            }else{
+                content[0].textContent = dni
+                div_escribir.append(content[0])
+
+                content[1].textContent = apelido
+                div_escribir.append(content[1])
+
+                content[2].textContent = data
+                div_escribir.append(content[2])
+            }
+        }
+
         let dni_usuario = formulario.querySelector("#n_documento")
         let apelido = formulario.querySelector("#apelido")
-        let data_nacemento = formulario.querySelector("#apelido")
+        let data_nacemento = formulario.querySelector("#data_nacemento")
 
         dni_usuario.addEventListener("change", comprobarDNI)
         apelido.addEventListener("change", comprobarApelido)
         data_nacemento.addEventListener("change", comprobarDataNacemento)
+        formulario.addEventListener("submit", escribirDatos)
     </script>
 </body>
 
