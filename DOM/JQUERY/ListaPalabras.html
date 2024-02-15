@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Resizable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <style>
+        #cafe, #lapiz, #gotico {
+            width: 100px;
+            height: 100px;
+            padding: 0.5em;
+        }
+
+        #aguda, #grave, #esdrujula{
+            width: 200px;
+            height: 200px;
+        }
+
+        #tipo-wrap{
+            width: 900px;
+            margin:auto;
+            display:flex;
+            justify-content: space-evenly;
+        }
+
+        #palabras-wrap{
+            width: 600px;
+            margin:auto;
+            display:flex;
+            justify-content: space-evenly;
+            margin-bottom:100px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#cafe").draggable();
+            $("#lapiz").draggable();
+            $("#gotico").draggable();
+
+            $("#aguda").droppable({
+                drop: function (event, ui) {
+                    var tempid = $(ui.draggable);
+                    var value = tempid.attr("id")
+
+                    if(value == "cafe"){
+                        $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html("Correcto");
+                    }else{
+                        $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html("Incorrecto");
+                    }
+                }
+            });
+
+            $("#grave").droppable({
+                drop: function (event, ui) {
+                    var tempid = $(ui.draggable);
+                    var value = tempid.attr("id")
+
+                    if(value == "lapiz"){
+                        $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html("Correcto");
+                    }else{
+                        $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html("Incorrecto");
+                    }
+                }
+            });
+
+            $("#esdrujula").droppable({
+                drop: function (event, ui) {
+                    var tempid = $(ui.draggable);
+                    var value = tempid.attr("id")
+
+                    if(value == "gotico"){
+                        $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html("Correcto");
+                    }else{
+                        $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html("Incorrecto");
+                    }
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="palabras-wrap">
+        <div id="cafe" class="ui-widget-content">
+            <h3 class="ui-widget-header">Café</h3>
+        </div>
+    
+        <div id="lapiz" class="ui-widget-content">
+            <h3 class="ui-widget-header">Lápiz</h3>
+        </div>
+    
+        <div id="gotico" class="ui-widget-content">
+            <h3 class="ui-widget-header">Gótico</h3>
+        </div>
+    </div>
+
+
+    <div id="tipo-wrap">
+        <div id="aguda" class="ui-widget-header">
+            <p>Aguda</p>
+        </div>
+    
+        <div id="grave" class="ui-widget-header">
+            <p>Grave</p>
+        </div>
+    
+        <div id="esdrujula" class="ui-widget-header">
+            <p>Esdrujula</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

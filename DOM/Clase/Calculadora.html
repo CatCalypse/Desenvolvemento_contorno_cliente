@@ -1,15 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clase 1</title>
 
-</head>
-<body>
-    <script>
+    <style>
+        body {
+            margin: 0px;
+        }
 
+        #wrapper{
+            width:100%;
+            display:flex;
+            justify-content: space-evenly;
+        }
+
+        #wrapper_calculadora{
+            width:fit-content;
+        }
+
+        #numeros {
+            display: flex;
+            width: 175px;
+            height: 200px;
+            margin: auto;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .btn_numeros {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        #menu{
+            margin-top:10px;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width:225px;
+            height: 100px;
+        }
+
+        #wrapper_datos{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width:225px;
+            height: 250px;
+        }
+
+        #operando1, #operando2, #resultado{
+            width: 100%;
+            height: 35px;
+            border: 1px solid black;
+            border-radius: 4px;;
+        }
+
+        #operandos > button{
+            width: 100px;
+        }
+
+        button {
+            width: 40px;
+            height: 40px;
+            color: initial;
+            background-color: initial;
+        }
+
+        h3{
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="wrapper_calculadora">
+            <div id="numeros">
+                <div class="btn_numeros">
+                    <button id="btn1">1</button>
+                    <button id="btn2">2</button>
+                    <button id="btn3">3</button>
+                </div>
+
+                <div class="btn_numeros">
+                    <button id="btn4">4</button>
+                    <button id="btn5">5</button>
+                    <button id="btn6">6</button>
+                </div>
+
+                <div class="btn_numeros">
+                    <button id="btn7">7</button>
+                    <button id="btn8">8</button>
+                    <button id="btn9">9</button>
+                </div>
+
+                <div class="btn_numeros">
+                    <button id="btn0">0</button>
+                </div>
+            </div>
+
+            <div id="menu">
+                <div id="tipos">
+                    <button id="suma">+</button>
+                    <button id="resta">-</button>
+                    <button id="multiplicacion">*</button>
+                    <button id="division">/</button>
+                    <button id="operacion">=</button>
+                </div>
+
+                <div id="operandos">
+                    <button id="btn_operando1">Operando 1</button>
+                    <button id="btn_operando2">Operando 2</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="wrapper_datos">
+            <h3>Operando 1</h3>
+            <div id="operando1"></div>
+
+            <h3>Operando 2</h3>
+            <div id="operando2"></div>
+
+            <h3>Resultado</h3>
+            <div id="resultado"></div>
+        </div>
+    </div>
+
+
+    <script>
+        let numeros = document.querySelector("#numeros")
+        let div_numeros = numeros.querySelectorAll("div")
+        let btn_numeros = ""
+        let operando1 = document.querySelector("#operando1")
+        let operando2 = document.querySelector("#operando2")
+        let btn_operando1 = document.querySelector("#btn_operando1")
+        let btn_operando2 = document.querySelector("#btn_operando2")
+        let operando_escribir = operando1
+
+        btn_operando1.style.color = "white"
+        btn_operando1.style.backgroundColor = "black"
+
+
+        let tipo= {value: null}
+        
+        btn_operando1.addEventListener("click", activarOperando1)
+        btn_operando2.addEventListener("click", activarOperando2)
+
+        div_numeros.forEach(div => {
+            btn_numeros = div.querySelectorAll("button")
+
+            btn_numeros.forEach(btn => {
+                btn.addEventListener("click", engadirOperando)
+            });
+        });
+
+        let menu = document.querySelector("#menu")
+
+        document.querySelector("#suma").addEventListener("click", tipoOperacion)
+        document.querySelector("#resta").addEventListener("click", tipoOperacion)
+        document.querySelector("#multiplicacion").addEventListener("click", tipoOperacion)
+        document.querySelector("#division").addEventListener("click", tipoOperacion)
+
+        document.querySelector("#operacion").addEventListener("click", realizarOperacion)
+
+        function engadirOperando(){
+            let numero = this.textContent
+
+            operando_escribir.textContent = operando_escribir.textContent + `${numero}`
+        }
+
+        function activarOperando1(){
+            btn_operando2.style.color = "initial"
+            btn_operando2.style.backgroundColor = "initial"
+            this.style.color = "white"
+            this.style.backgroundColor = "black"
+
+            operando_escribir = operando2
+        }
+
+        function activarOperando2(){
+            btn_operando1.style.color = "initial"
+            btn_operando1.style.backgroundColor = "initial"
+            this.style.color = "white"
+            this.style.backgroundColor = "black"
+
+            operando_escribir = operando2
+        }
+
+        function tipoOperacion(){
+            let tempid = this.id
+            tipo.value = tempid
+
+            let tipos = document.querySelector("#tipos")
+
+            let elementos = tipos.querySelectorAll("button")
+
+            elementos.forEach(elemento => {
+                console.log(elemento)
+                elemento.style.color = "initial"
+                elemento.style.backgroundColor = "initial" 
+            });
+            
+            this.style.color = "white"
+            this.style.backgroundColor = "black" 
+        }
+
+        function realizarOperacion(){
+            if(tipo.value != null && operando1.textContent != "" && operando2.textContent != ""){
+                let div_escribir = document.querySelector("#resultado")
+
+                if(tipo.value == "suma"){
+                    div_escribir.textContent = (parseInt(operando1.textContent) + parseInt(operando2.textContent))
+                }else if(tipo.value == "resta"){
+                    div_escribir.textContent = (operando1.textContent - operando2.textContent)
+                }else if(tipo.value == "multiplicacion"){
+                    div_escribir.textContent = (operando1.textContent * operando2.textContent)
+                }else if(tipo.value == "division"){
+                    div_escribir.textContent = Math.round(operando1.textContent / operando2.textContent)
+                }
+            }
+        }
     </script>
 </body>
+
 </html>

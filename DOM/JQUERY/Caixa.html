@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+    <style>
+        #caixa {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="caixa"></div>
+
+    <form method="post" id="formulario">
+        <input type="text" name="texto" id="texto">
+        <input type="submit" value="Escribir">
+    </form>
+
+    <script>
+        let ampliado = false
+
+        $("#caixa").click(function () {
+            let caixa = $(this)
+
+            if (!ampliado) {
+                caixa.animate({
+                    "width": caixa.width() * 2,
+                    "height": caixa.height() * 2
+                })
+                ampliado = true;
+            } else {
+                caixa.animate({
+                    "width": caixa.width() / 2,
+                    "height": caixa.height() / 2
+                })
+                ampliado = false;
+            }
+        })
+
+        $("#formulario").submit(function(event) {
+            event.preventDefault()
+
+            let texto = $("#texto").text
+
+            $("#caixa").text = texto
+        })
+
+    </script>
+</body>
+
+</html>

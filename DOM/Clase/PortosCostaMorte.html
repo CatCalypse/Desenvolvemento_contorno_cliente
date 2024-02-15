@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 1</title>
+
+    <style>
+        img {
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+
+        table {
+            padding: 0px;
+            border-collapse: collapse;
+            width:fit-content;
+            margin:auto;
+        }
+
+        th {
+            padding: 0px;
+            width: 200px;
+        }
+
+        td {
+            padding: 20px;
+            width: fit-content;
+            height: fit-content;
+        }
+
+        #escribir{
+            width:200px;
+            text-align: center;
+            margin:auto;
+            font-size: 1.25em;
+        }
+    </style>
+</head>
+<body>
+    <table id="tabla">
+        <tr>
+            <td><img src="imagenes/brens.jpg" alt="Brens"></td>
+            <td><img src="imagenes/camelle.jpg" alt="Camelle"></td>
+            <td><img src="imagenes/corcubion.jpg" alt="Corcubion"></td>
+        </tr>
+
+        <tr>
+            <td><img src="imagenes/corme.jpg" alt="Corme"></td>
+            <td><img src="imagenes/laxe.jpg" alt="Laxe"></td>
+            <td><img src="imagenes/muxia.jpg" alt="Muxia"></td>
+        </tr>
+    </table>
+    
+    <div id="escribir"></div>
+
+    <script defer>
+        let tabla = document.querySelector("#table")
+
+        function escribirNombre(event){
+            let lugar = this.alt
+            let escribir = document.querySelector("#escribir")
+            escribir.textContent = lugar;
+        }
+
+        let imagenes = document.querySelectorAll("img")
+
+        imagenes.forEach(imagen => {
+            imagen.addEventListener("mouseover", escribirNombre)
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <img src="imagenes/cat1.jpg" id="imagen">
+
+    <script>
+        let imagen = document.querySelector("#imagen")
+        let intervalo_incremento = null;
+        let intervalo_reduccion = null;
+
+        let intervalo_imagen = setInterval(() => {
+            imagen = document.querySelector("#imagen")
+            if (imagen.style.style.opacity == 0) {
+                intervalo_incremento = setInterval((imagen) => {
+                    imagen.style.opacity = (imagen.style.opacity + 0.2)
+
+                    if (imagen.style.opacity == 1) {
+                        clearInterval(intervalo_incremento)
+                    }
+                }), 1000
+            } else if (imagen.style.opacity == 1) {
+                intervalo_reduccion = setInterval((imagen) => {
+                    imagen.style.opacity = (imagen.style.opacity - 0.2)
+
+                    if (imagen.style.opacity == 0) {
+                        clearInterval(intervalo_reduccion)
+                    }
+                }), 1000
+            }
+
+        }, 10000)
+    </script>
+
+</body>
+
+</html>

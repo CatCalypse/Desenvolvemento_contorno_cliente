@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+    
+    <style>
+        #tabla{
+            border-collapse: collapse;
+            width:200px;
+            margin: auto;
+        }
+
+        th, td{
+            padding:5px;
+            text-align: center;
+        }
+
+        #wrap{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #button-wrap{
+            width:fit-content;
+            margin:auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="button-wrap">
+            <button id="insertar">Insertar fila</button>
+        </div>
+        
+
+        <table id="tabla" border="1">
+            <tr>
+                <th colspan="4"> TÁBOA DE JQUERY </th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        $("#insertar").click(function(){
+            $("#tabla").append("<tr><td>G</td><td>A</td><td>T</td><td>O</td></tr>")
+        })
+    </script>
+</body>
+</html>
