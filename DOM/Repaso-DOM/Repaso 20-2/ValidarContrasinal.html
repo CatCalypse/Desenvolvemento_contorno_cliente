@@ -41,24 +41,24 @@
 <body>
     <div id="wrap">
         <div id="input-wrap">
-            <input type="text" name="correo" id="correo">
+            <input type="text" name="contrasinal" id="contrasinal">
         </div>
 
         <div id="btn"></div>
 
         <div id="texto">
-            Comprobar Correo
+            Comprobar Contrasinal
         </div>
     </div>
 
     <script>
-        let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let regex = /^ $/
 
         $("#btn").click(function(){
-            if(regex.test($("#correo").val())){
-                $("#texto").text("Correo Correcto")
+            if(regex.test($("#contrasinal").val())){
+                $("#contrasinal").text("Contrasinal Correcto")
             }else{
-                $("#texto").text("Correo Incorrecto")
+                $("#contrasinal").text("Contrasinal Incorrecto")
             }
         })
     </script>
