@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+    <style>
+        #borde{
+            width:500px;
+            height:50px;
+            border:1px solid black;
+        }
+
+        #barra{
+            width: 0px;
+            height:50px;
+            background-color: rgb(67, 67, 255);
+        }
+
+        #texto{
+            display:none;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div id="borde">
+        <div id="barra">
+            <p id="texto">Loaded</p>
+        </div>
+    </div>
+
+    <script>
+        $("#barra").animate({
+            width: "+=500"
+        }, 5000, function () {
+            $("#texto").css("display", "inline")
+        })
+
+    </script>
+</body>
+</html>

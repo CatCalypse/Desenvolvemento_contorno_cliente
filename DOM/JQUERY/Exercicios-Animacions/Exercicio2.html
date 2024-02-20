@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        #wrap-btn{
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #imaxen{
+            display:none;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="wrap-btn">
+            <button id="btn-imaxen-mostrar">Mostrar Imaxen</button>
+
+            <button id="btn-imaxen-ocultar">Ocultar Imaxen</button>
+        </div>
+
+        <img src="../imagenes/cat1.jpg" id="imaxen">
+    </div>
+
+    <script>
+        $("#btn-imaxen-mostrar").click(function(){
+            $("#imaxen").fadeIn("slow", function(){
+
+            })
+        })
+
+        $("#btn-imaxen-ocultar").click(function(){
+            $("#imaxen").fadeOut("slow", function(){
+
+            })
+        })
+    </script>
+</body>
+</html>

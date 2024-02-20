@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+    <style>
+        .imagen {
+            position: relative;
+            width: 200px;
+            height: 200px;
+
+            opacity: 1;
+        }
+
+        #wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 625px;
+            margin: auto;
+        }
+
+        .img-wrap {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            height: 200px;
+            margin-bottom: 5px;
+        }
+
+        #btn-wrap {
+            text-align: center;
+            margin: auto;
+            margin-bottom: 25px;
+        }
+
+        .black-img {
+            background-color: black;
+        }
+
+        .imagen-recordar {
+            display: none;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="btn-wrap">
+        <button id="boton-xogar">Xogar</button>
+    </div>
+
+    <div id="wrap">
+        <div class="img-wrap">
+            <div class="black-img"><img src="imagenes/memoria1.jpg" alt="" class="imagen" id="img1"></div>
+            <div class="black-img"><img src="imagenes/memoria2.jpg" alt="" class="imagen" id="img2"></div>
+            <div class="black-img"><img src="imagenes/memoria3.jpg" alt="" class="imagen" id="img3"></div>
+        </div>
+
+        <div class="img-wrap">
+            <div class="black-img"><img src="imagenes/memoria4.jpg" alt="" class="imagen" id="img4"></div>
+            <div class="black-img"><img src="imagenes/memoria5.jpg" alt="" class="imagen" id="img5"></div>
+            <div class="black-img"><img src="imagenes/memoria6.jpg" alt="" class="imagen" id="img6"></div>
+        </div>
+
+        <div class="img-wrap">
+            <div class="black-img"><img src="imagenes/memoria7.jpg" alt="" class="imagen" id="img7"></div>
+            <div class="black-img"><img src="imagenes/memoria8.jpg" alt="" class="imagen" id="img8"></div>
+            <div class="black-img"><img src="imagenes/memoria9.jpg" alt="" class="imagen" id="img9"></div>
+        </div>
+    </div>
+
+
+    <div id="imagen-recordar-wrap">
+        <img src="" id="imagen-recordar" class="imagen-recordar">
+    </div>
+
+    <script>
+        $("#boton-xogar").click(function () {
+            let imagenes = document.querySelectorAll(".imagen")
+
+            imagenes.forEach(imagen => {
+                imagen.style.opacity = 0;
+            });
+
+            let img_recordar = document.querySelector(".imagen-recordar")
+
+            let array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+            img_recordar.style.display = "block"
+            img_recordar.src = "imagenes/memoria3.jpg"
+            img_recordar.id = "img3"
+
+            imagenes.forEach(img => {
+                img.addEventListener("click", function(){
+                    if(this.id == img_recordar.id){
+                        this.style.opacity = 1;
+                    }
+                })
+            });
+        })
+
+
+
+    </script>
+</body>
+
+</html>
