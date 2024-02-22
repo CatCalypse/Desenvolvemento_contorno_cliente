@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <script>
+            String.prototype.reverse = function(){
+                let text = ""
+                for(let i = this.length - 1; i >= 0; i--){
+                    text = text + this.charAt(i)
+                }
+                return text
+            }
+    </script>
+
+</head>
+<body>
+    <input type="text" id="texto">
+    <button id="boton">Escribir</button>
+    <div id="div-imprimir">
+
+    <script>
+            let boton = document.querySelector("#boton")
+            boton.addEventListener("click", function(){
+                let frase = document.querySelector("#texto").value
+                frase = frase.reverse()
+                document.write(frase)
+            })
+    </script>    
+</body>
+</html>

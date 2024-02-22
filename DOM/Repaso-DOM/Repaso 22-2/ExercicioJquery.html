@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        #div-imprimir{
+            display:none;
+        }
+    </style>
+
+</head>
+<body>
+    <input type="text" id="texto">
+    <button id="boton">Escribir</button>
+    <br>
+    <table id="tabla">
+        <tr>
+            <th>Productos</th>
+        </tr>
+    </table>
+
+    <script>
+        let tabla = document.querySelector("#tabla")
+
+        let boton = document.querySelector("#boton")
+
+        boton.addEventListener("click", function(){
+            let tr = document.createElement("tr")
+            let td = document.createElement("td")
+
+            td.textContent = document.querySelector("#texto").value
+
+            tr.append(td)
+            tabla.append(tr)
+            
+        })
+    </script>
+</body>
+</html>

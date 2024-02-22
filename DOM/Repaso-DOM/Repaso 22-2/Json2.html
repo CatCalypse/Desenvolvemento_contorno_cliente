@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        #div-imprimir{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id="div-imprimir"><h1>Datos Empresas</h1></div>
+
+
+    <script>
+        let empresa_json1 = '{"Nome":"Amoso S.L", "CIF":"G15133648", "Direccion":"Rúa Areal, 24. 15150. A Coruña", "Teléfono":9817385444}';
+        let empresa_json2 = '{"Nome":"Pepe S.L", "CIF":"CIFchachi", "Direccion":"Dirección Pepe S.L", "Teléfono":9814447385}';
+
+        let empresa_js1 = JSON.parse(empresa_json1);
+        let empresa_js2 = JSON.parse(empresa_json2);
+
+        let empresas = [empresa_js1, empresa_js2]
+
+        let div_escribir = document.querySelector("#div-imprimir")
+
+        let contador = 1;
+        empresas.forEach(empresa => {
+            let div_wrap = document.createElement("div")
+            let num_empresa = document.createElement("h2")
+            let nombre = document.createElement("p")
+            let CIF = document.createElement("p")
+            let Direccion = document.createElement("p")
+            let Teléfono = document.createElement("p")
+
+            num_empresa.textContent = "Empresa " + contador
+            nombre.textContent = "Nome: " + empresa.Nome;
+            CIF.textContent = "CIF: " + empresa.CIF;
+            Direccion.textContent = "Direccion: " + empresa.Direccion;
+            Teléfono.textContent = "Teléfono: " + empresa.Teléfono;
+
+            div_escribir.append(div_wrap)
+            div_wrap.append(num_empresa)
+            div_wrap.append(nombre)
+            div_wrap.append(CIF)
+            div_wrap.append(Direccion)
+            div_wrap.append(Teléfono)
+
+            contador++
+        });
+
+        $("#div-imprimir").fadeIn(5000)
+    </script>
+</body>
+
+</html>

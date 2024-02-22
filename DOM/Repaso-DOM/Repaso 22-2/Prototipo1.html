@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        #div-imprimir{
+            display:none;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div-imprimir">
+        <script>
+            Array.prototype.impares = function(){
+                for(let i = 0; i <= 100; i++){
+                    if(i % 2 != 0){
+                        this.push(i)
+                    }
+                }
+                return this
+            }
+    
+            let numeros_impares = [].impares()
+    
+            let div = document.querySelector("#div-imprimir")
+            numeros_impares.forEach(numero => {
+                document.write(numero + " ")
+            });
+        </script></div>
+
+        <script>
+            setTimeout(function(){
+                $("#div-imprimir").fadeIn("fast")
+            }, 5000)
+            
+        </script>
+</body>
+</html>

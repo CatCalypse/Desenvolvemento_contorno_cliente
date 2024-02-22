@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        #btn{
+            width: 200px;
+            height: 50px;
+            background-color: greenyellow;
+            border-radius: 5px;
+        }
+
+        #wrap{
+            display:flex;
+            flex-direction: column;
+            margin:auto;
+            width: fit-content;
+            height: 175px;
+            margin-top: 100px;;
+            justify-content: space-evenly;
+        }
+
+        #input-wrap{
+            height: 30px;
+            width:200px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #texto{
+            height:30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="input-wrap">
+            <input type="text" name="referencia" id="referencia">
+        </div>
+
+        <div id="btn"></div>
+
+        <div id="texto">
+            Comprobar Referencia
+        </div>
+    </div>
+
+    <script>
+        let regex = /^[A-Z]\-\d{4}\-[A-Z]$/
+
+        $("#btn").click(function(){
+            if(regex.test(document.querySelector("#referencia").value)){
+                $("#texto").text("Referencia Correcta")
+            }else{
+                $("#texto").text("Referencia Incorrecta")
+            }
+        })
+    </script>
+
+</body>
+</html>
