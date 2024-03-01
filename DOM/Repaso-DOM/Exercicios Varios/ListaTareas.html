@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        #boton{
+            margin-left: -2px;
+        }
+
+        h2{
+            margin:5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lista de tarefas</h2>
+    <input type="text" id="tarefa"><button id="boton">+</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+        let lista = document.querySelector("#lista")
+        let tarefa = document.querySelector("#tarefa")
+        let boton = document.querySelector("#boton")
+
+        boton.addEventListener("click", function(){
+            let li = document.createElement("li")
+            let boton_borrado = document.createElement("button")
+            boton_borrado.textContent = "Quitar"
+            li.textContent = tarefa.value + " "
+            lista.append(li)
+            li.append(boton_borrado)
+
+            boton_borrado.addEventListener("click", function(){
+
+                $(this).parent().fadeOut(1000, function() { $(this).remove()} )
+
+                
+            })
+        })
+
+
+    </script>
+</body>
+</html>

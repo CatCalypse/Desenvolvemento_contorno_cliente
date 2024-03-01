@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        #wrap{
+            width:100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        #restart{
+            margin-top: 20px;
+            font-size: 30px;
+            display: none;
+            text-align: center;
+        }
+
+        #contador{
+            font-size: 75px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div>
+            <div id="contador">60</div>
+            <div id="restart">Reiniciar</div>
+        </div>
+    </div>
+
+
+    <script>
+        let segundos = 60
+        $("#contador").click(function(){
+            if(segundos <= 0){
+
+            }else{
+                let intervalo = setInterval(function(){
+                    segundos--
+                    $("#contador").text(segundos)
+
+
+                    if(segundos == 0){
+                        $("#contador").text("STOP")
+                        $("#restart").show()
+                        clearInterval(intervalo)
+                    }else if(segundos < 0){
+                        $("#contador").text("STOP")
+                        $("#restart").show()
+                        clearInterval(intervalo)
+                    }
+                }, 100)
+            }
+        })
+
+
+        $("#restart").click(function(){
+            segundos = 0
+
+            let intervalo = setInterval(function(){
+                segundos++
+                $("#contador").text(segundos)
+
+
+                if(segundos == 60){
+                    $("#restart").hide()
+                    clearInterval(intervalo)
+                }else if(segundos > 60){
+                    $("#contador").text(60)
+                    $("#restart").hide()
+                    clearInterval(intervalo)
+                }
+            }, 100)
+        })
+    </script>
+</body>
+</html>

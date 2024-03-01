@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        p {
+            display: inline;
+            width: fit-content;
+        }
+
+        #wrap{
+            display:flex;
+            height:100px;
+            width:400px;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        #wrap-texto{
+            display:flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        #wrap-boton{
+            display:flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="wrap-texto">
+            <p id="texto-textual">Texto textualmente contextual </p>
+            <p id="texto-magico">Texto mágicamente mágico </p>
+        </div>
+        <div id="wrap-boton">
+            <button id="boton">Visibilidad</button>
+        </div>
+    </div>
+    <script>
+        $("#boton").click(function () {
+            $("#texto-textual").fadeToggle(1000)
+            $("#texto-magico").fadeToggle(1000)
+        })
+    </script>
+</body>
+
+</html>

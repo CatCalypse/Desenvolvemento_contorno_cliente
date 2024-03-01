@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        p {
+            display: inline;
+            width: fit-content;
+        }
+
+        #wrap{
+            display:flex;
+            height:200px;
+            width:400px;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        #wrap-texto{
+            display:flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        #wrap-boton{
+            display:flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="wrap-texto">
+            <p id="texto1">Texto 1</p>
+            <p id="texto2">Texto 2</p>
+            <p id="texto3">Texto 3</p>
+            <p id="texto4">Texto 4</p>
+        </div>
+        <div id="wrap-boton">
+            <button id="boton">Visibilidad</button>
+        </div>
+    </div>
+    <script>
+        $("#boton").click(function () {
+            $("#texto2").fadeToggle(1000)
+            $("#texto4").fadeToggle(1000)
+        })
+    </script>
+</body>
+
+</html>

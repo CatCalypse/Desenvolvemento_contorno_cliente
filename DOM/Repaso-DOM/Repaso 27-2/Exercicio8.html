@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        #wrap-image{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        #wrap-button{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        #michi-imagen{
+            width:200px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="wrap-image">
+        <img src="michi.jpg" id="michi-imagen">
+    </div>
+    
+    <div id="wrap-button">
+        <button id="esquerda">Esquerda</button>
+        <button id="centro">Centro</button>
+        <button id="dereita">Dereita</button>
+    </div>
+
+    <script>
+        let div = document.querySelector("#wrap-image")
+
+        $("#esquerda").click(function(){
+            div.style.justifyContent = "left"
+        })
+
+        $("#centro").click(function(){
+            div.style.justifyContent = "center"
+        })
+
+        $("#dereita").click(function(){
+            div.style.justifyContent = "right"
+        })
+
+    </script>
+</body>
+</html>
