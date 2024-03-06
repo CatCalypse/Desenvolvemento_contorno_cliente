@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p>Fecha 1</p>
+        <input type="date" id="Fecha-1">
+        <p>Fecha 2</p>
+        <input type="date" id="Fecha-2">
+        <br><br>
+        <button id="boton">Comprobar</button>
+        <p id="escribir"></p>
+    </div>
+
+
+
+    <script>
+        let boton = document.querySelector("#boton")
+
+        let escribir = document.querySelector("#escribir")
+
+        boton.addEventListener("click", function(){
+            let fecha1 = new Date(document.querySelector("#Fecha-1").value)
+            let fecha2 = new Date(document.querySelector("#Fecha-2").value)
+
+            let diferencia = new Date()
+
+            diferencia = diferencia.diasDiferencia(fecha1, fecha2)
+
+            escribir.textContent = diferencia
+        })
+
+        Date.prototype.diasDiferencia = function(fecha1, fecha2){
+            let dif = 0
+
+            if(fecha1 > fecha2){
+                dif = fecha1 - fecha2
+            }else if(fecha1 < fecha2){
+                dif = fecha2 - fecha1
+            }else{
+                dif = 0
+            }
+
+            dif = dif / (1000 * 3600 * 24)
+
+            return dif
+        } 
+    </script>
+</body>
+
+</html>

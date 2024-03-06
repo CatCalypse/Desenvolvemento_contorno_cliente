@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        Array.prototype.aplanarArray = function(){
+            let array = []
+
+            for(let i = 0; i < this.length; i++){
+                if(Array.isArray(this[i])){
+                    this[i].forEach(elemento => {
+                        
+                        array.push(elemento)
+                    })
+                }else{
+                    array.push(this[i])
+                }
+            }
+
+            return(array)
+        }
+
+        let array_numeros = [[1, "un", 2 , "dous", 3, "tres"], 4, "catro", 5, "cinco"]
+        array_numeros.forEach(element => {
+            document.write(element + "<br>")
+        });
+
+        document.write("<br><br>")
+        array_numeros = array_numeros.aplanarArray()
+        
+        array_numeros.forEach(element => {
+            document.write(element + "<br>")
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        Array.prototype.sortMayorMenor = function(){
+            let array = []
+
+            for(let i = 0; i < this.length; i++){
+                if(array.length >= 1){
+                    for(let j = 0; j < array.length; j++ ){
+                        if(this[i] > array[0]){
+                            array.unshift(this[i])
+                            break
+                        }
+
+                        if(j != 0){
+                            if(this[i] > array[j]){
+                                array.splice(j, 0, this[i])
+                                break
+                            }
+                        }
+                    }
+                }else{
+                    array.push(this[i])
+                }
+            }
+
+            return(array)
+        }
+
+
+
+        let array_numeros = [1, 9, 8, 4, 2, 7, 3, 6, 5, 4]
+        array_numeros.forEach(element => {
+            document.write(element + "<br>")
+        });
+
+        document.write("<br><br>")
+        array_numeros = array_numeros.sortMayorMenor()
+        
+        array_numeros.forEach(element => {
+            document.write(element + "<br>")
+        });
+    </script>
+</body>
+</html>
