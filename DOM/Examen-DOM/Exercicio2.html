@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen - 2</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        body{
+            margin:0px;
+            width:100%;
+            height:100%;
+        }
+
+        #boton{
+            width:100px;
+            height:75px;
+        }
+
+        #enlace-correcto{
+            background-color:green;
+            color:white;
+        }
+
+        #enlace-incorrecto{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="enlace">
+    <img src="imagenes/boton.JPG" id="boton">
+
+    <div id="enlace-incorrecto">Enlace Incorrecto</div>
+
+    <div id="enlace-correcto"></div>
+
+
+    <script>
+        let regex = /^https{0,1}:\/\/www\..+\.[a-z]{2,3}$/
+
+        $("#boton").click(function(){
+            let texto = $("#enlace").val()
+            let fin_cabecera = texto.indexOf(".")
+            let correcto = document.querySelector("#enlace-correcto")
+            let p = document.createElement("p")
+
+            if(regex.test(texto)){
+                texto = texto.slice(fin_cabecera + 1)
+                p.textContent = texto
+                correcto.appendChild(p)
+                $("#enlace-incorrecto").fadeOut("slow")
+            }else{
+                $("#enlace-incorrecto").fadeIn("slow")
+            }
+        })
+    </script>
+</body>
+
+</html>

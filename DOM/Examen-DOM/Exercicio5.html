@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen - 5</title>
+    <script src="jquery-1.7.js"></script>
+
+    <style>
+        body{
+            margin:0px;
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        let aula_json ='{"Nome":"Radio", "Ubicacion":"1º Planta", "Ocupada":"True", "DataFinOcupacion": "09-03-2024"}';
+
+        let aula_js = JSON.parse(aula_json)
+
+        let array_aulas = []
+
+        array_aulas.push(aula_js)
+
+        let aula = ""
+        let nome = ""
+        let ubicacion = ""
+        let ocupada = ""
+        let fecha = ""
+
+        console.log(array_aulas)
+
+        for(let i = 0; i < 2; i++){
+            nome = prompt("Introduce o nome da Aula")
+            ubicacion = prompt("Introduce a ubicacion da aula")
+            ocupada = prompt("Esta a aula ocupada? (true/false)")
+            fecha = prompt("Introduce a data de fin de ocupación (DD-MM-YYYY)")
+
+            aula = `{"Nome":"${nome}", "Ubicacion":"${ubicacion}", "Ocupada":"${ocupada}", "DataFinOcupacion": "${fecha}"}`;
+
+            array_aulas.push(JSON.parse(aula))
+        }
+
+        array_aulas.forEach(element => {
+            document.write("Nome: " + element.Nome + "<br>")
+            document.write("Ubicación: " + element.Ubicacion + "<br>")
+            document.write("Ocupada: " + element.Ocupada + "<br>")
+            document.write("Data de fin de ocupación: " + element.DataFinOcupacion + "<br><br>")
+        });
+    </script>
+</body>
+
+</html>
