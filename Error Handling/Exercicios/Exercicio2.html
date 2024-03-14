@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let error = new Error("Fallo a hora de realizar a conversión")
+
+        let convertir = (cadea) => {
+            let regex = /^\d{1,}$/
+            
+            try{
+                if(typeof(cadea) == "string"){
+                    if(regex.test(cadea)){
+                        return parseInt(cadea)
+                    }else{
+                        throw error
+                    }
+                }else{
+                    throw error
+                }
+            }catch {
+                console.log(error.message)
+                return cadea
+            }
+        }
+
+        let cadea = convertir("100")
+
+        document.write("A frase " + cadea + " e de tipo " + typeof(cadea))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

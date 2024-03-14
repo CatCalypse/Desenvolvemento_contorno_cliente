@@ -52,7 +52,7 @@
     </div>
 
     <script>
-        let regex = /^ $/
+        let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\?).{8,}$/
 
         $("#btn").click(function(){
             if(regex.test($("#contrasinal").val())){

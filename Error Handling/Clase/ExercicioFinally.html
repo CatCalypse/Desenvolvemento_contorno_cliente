@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let error = new Error("Un ou os dous parámetros, non son números")
+
+        let concatenar = (cadena1, cadena2) => {
+            cadena1  = cadena1.toString()
+            cadena2  = cadena2.toString()
+            return (cadena1 + cadena2)
+        }
+
+        let comprobarNumeros = (cadena1, cadena2) => {
+            let regex = /^\d{1,}$/
+
+            try{
+                if(regex.test(cadena1)){
+                    if(regex.test(cadena2)){
+
+                    }else{
+                        throw error
+                    }
+                }else{
+                    throw error
+                }
+            }catch{
+                console.log(error.message)
+            }finally{
+                return concatenar(cadena1, cadena2)
+            }
+        }
+
+        let cadea1 = "a"
+        let cadea2 = "2"
+
+        document.write(comprobarNumeros(cadea1, cadea2))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

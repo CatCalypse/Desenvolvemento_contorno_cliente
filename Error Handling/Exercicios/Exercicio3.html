@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let error = new Error("O índice non se atopa no array")
+
+        let comprobarIndice = (arr, index) => {
+            try{
+                if(Array.isArray(arr)){
+                    if(typeof(index) == "number"){
+                        if(index < arr.length && index >= 0){
+                            return(arr[index])
+                        }else{
+                            throw error
+                        }
+                    }else{
+                        throw error
+                    }
+                }else{
+                    throw error
+                }
+            }catch {
+                console.log(error.message)
+                return null
+            }finally{
+                console.log("Hola")
+            }
+        }
+
+        let index = 2
+        let arr = [1, 2, 3, 4]
+
+        document.write("O elemento na posición " + index + " e " + comprobarIndice(arr, index))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
