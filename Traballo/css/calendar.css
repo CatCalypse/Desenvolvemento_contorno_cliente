@@ -1,0 +1,8 @@
+.control{
+    margin:0px;
+    width: fit-content;
+}
+
+#calendar-head{
+    display:flex;
+}
